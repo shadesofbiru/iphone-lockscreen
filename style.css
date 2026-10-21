@@ -1,0 +1,391 @@
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #17171b;
+  color: white;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.phone {
+  position: relative;
+  width: min(420px, 94vw);
+  height: min(890px, 96vh);
+  min-height: 620px;
+  overflow: hidden;
+  border: 3px solid #38383d;
+  border-radius: 60px;
+  background: #100d11;
+  box-shadow: 0 0 0 5px #111, 0 20px 70px #0009;
+  isolation: isolate;
+}
+
+.wallpaper {
+  position: absolute;
+  inset: 7px;
+  z-index: -2;
+  border-radius: 49px;
+  background:
+    linear-gradient(#08050a22, #08050a44),
+    url("https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=1000&q=90")
+    center / cover;
+}
+
+.status-bar {
+  position: absolute;
+  z-index: 10;
+  top: 24px;
+  left: 45px;
+  right: 43px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.island {
+  position: absolute;
+  top: -7px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 125px;
+  height: 37px;
+  background: #000;
+  border-radius: 25px;
+}
+
+.status-icons {
+  font-size: 13px;
+}
+
+.lock-screen,
+.passcode-screen {
+  position: absolute;
+  inset: 0;
+  transition: transform 0.4s ease, opacity 0.3s ease;
+}
+
+.date {
+  position: absolute;
+  top: 95px;
+  width: 100%;
+  text-align: center;
+  font-size: 19px;
+  font-weight: 650;
+}
+
+.clock {
+  position: absolute;
+  top: 120px;
+  width: 100%;
+  text-align: center;
+  font-size: clamp(78px, 20vw, 105px);
+  font-weight: 300;
+  letter-spacing: -5px;
+  font-variant-numeric: tabular-nums;
+}
+
+.language {
+  position: absolute;
+  top: 245px;
+  width: 100%;
+  text-align: center;
+  font-size: 13px;
+}
+
+.notification {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  border-radius: 22px;
+  background: rgba(225, 222, 229, 0.76);
+  color: #19181b;
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+}
+
+.lock-notification {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 140px;
+}
+
+.app-icon {
+  width: 37px;
+  height: 37px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  background: white;
+  color: #ff8e50;
+  font-size: 26px;
+}
+
+.notification-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.notification-text strong,
+.popup-text strong {
+  font-size: 14px;
+}
+
+.notification-text p,
+.popup-text p {
+  margin: 3px 0 0;
+  font-size: 13px;
+}
+
+.now {
+  align-self: flex-start;
+  color: #777;
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.bottom-controls {
+  position: absolute;
+  bottom: 32px;
+  left: 30px;
+  right: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.circle-button {
+  width: 47px;
+  height: 47px;
+  border: 0;
+  border-radius: 50%;
+  color: white;
+  background: #18161caa;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.swipe-text {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 180px;
+  padding: 12px 0;
+  border: 0;
+  background: transparent;
+  color: #ffffffcc;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+/* Passcode screen */
+
+.passcode-screen {
+  background:
+    radial-gradient(ellipse at 35% 30%, #49333766, transparent 50%),
+    linear-gradient(145deg, #1c1519, #0c0b0f 65%, #190f13);
+  border-radius: inherit;
+  transform: translateY(100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.passcode-screen.visible {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.lock-screen.dismissed {
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.passcode-screen h2 {
+  position: absolute;
+  top: 130px;
+  width: 100%;
+  margin: 0;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 650;
+}
+
+.passcode-dots {
+  position: absolute;
+  top: 174px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 23px;
+}
+
+.passcode-dots span {
+  width: 13px;
+  height: 13px;
+  border: 1px solid white;
+  border-radius: 50%;
+}
+
+.passcode-dots span.filled {
+  background: white;
+}
+
+.keypad {
+  position: absolute;
+  top: 228px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 288px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  gap: 15px 19px;
+}
+
+.key {
+  width: 79px;
+  height: 79px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 50%;
+  background: #484448bd;
+  color: white;
+  cursor: pointer;
+  transition: background 0.1s, transform 0.1s;
+}
+
+.key:active {
+  background: #777177;
+  transform: scale(0.95);
+}
+
+.key b {
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 1.05;
+}
+
+.key small {
+  min-height: 11px;
+  margin-top: 3px;
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: 1px;
+}
+
+.passcode-bottom {
+  position: absolute;
+  bottom: 47px;
+  left: 55px;
+  right: 55px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.passcode-bottom button {
+  border: 0;
+  background: transparent;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.error-message {
+  position: absolute;
+  top: 202px;
+  width: 100%;
+  text-align: center;
+  color: #ffb6c0;
+  font-size: 12px;
+}
+
+.home-indicator {
+  position: absolute;
+  z-index: 20;
+  bottom: 9px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 118px;
+  height: 5px;
+  border-radius: 10px;
+  background: white;
+}
+
+/* Popup notifikasi otomatis */
+
+.popup {
+  position: absolute;
+  z-index: 30;
+  top: 75px;
+  left: 17px;
+  right: 17px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  border-radius: 20px;
+  background: #e7e5ebf2;
+  color: #19181b;
+  box-shadow: 0 8px 25px #0005;
+  backdrop-filter: blur(20px);
+  opacity: 0;
+  transform: translateY(-15px);
+  pointer-events: none;
+  transition: 0.3s ease;
+}
+
+.popup.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.popup-icon {
+  width: 37px;
+  height: 37px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  background: linear-gradient(145deg, #f6a6cd, #9a67dd);
+  font-size: 24px;
+}
+
+.popup-text {
+  flex: 1;
+  min-width: 0;
+}
+
+@media (max-height: 740px) {
+  .date { top: 75px; }
+  .clock { top: 100px; }
+  .language { top: 215px; }
+  .notification.lock-notification { bottom: 125px; }
+  .passcode-screen h2 { top: 95px; }
+  .passcode-dots { top: 140px; }
+  .keypad { top: 185px; gap: 10px 17px; }
+  .key { width: 70px; height: 70px; }
+  .passcode-bottom { bottom: 37px; }
+}
+
+@media (max-width: 370px) {
+  .keypad { width: 258px; gap: 13px; }
+  .key { width: 72px; height: 72px; }
+  .status-bar { left: 32px; right: 32px; }
+}

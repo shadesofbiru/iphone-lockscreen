@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>iPhone Lock Screen</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="phone" id="phone">
+    <div class="wallpaper"></div>
+
+    <div class="status-bar">
+      <span id="statusTime">4:00</span>
+      <div class="island"></div>
+      <span class="status-icons">▂ ▄ ▆ ▰</span>
+    </div>
+
+    <!-- TAMPILAN 1: LOCK SCREEN -->
+    <section id="lockScreen" class="lock-screen">
+      <div class="date" id="date">Saturday, October 17</div>
+      <div class="clock" id="clock">4:00</div>
+      <div class="language">◎ English</div>
+
+      <div class="notification lock-notification">
+        <div class="app-icon">☷</div>
+        <div class="notification-text">
+          <strong>이소희's Birthday 🎂</strong>
+          <p>November 21 · in 35 days</p>
+        </div>
+        <span class="now">now</span>
+      </div>
+
+      <div class="bottom-controls">
+        <button class="circle-button" id="flashlight">♜</button>
+        <button id="swipeButton" class="swipe-text">
+          Swipe up to open
+        </button>
+        <button class="circle-button" id="camera">▣</button>
+      </div>
+    </section>
+
+    <!-- TAMPILAN 2: PASSCODE -->
+    <section id="passcodeScreen" class="passcode-screen">
+      <h2>Enter Passcode</h2>
+
+      <div class="passcode-dots" id="dots">
+        <span></span><span></span><span></span><span></span>
+      </div>
+
+      <div class="keypad">
+        <button class="key" data-number="1"><b>1</b></button>
+        <button class="key" data-number="2"><b>2</b><small>ABC</small></button>
+        <button class="key" data-number="3"><b>3</b><small>DEF</small></button>
+
+        <button class="key" data-number="4"><b>4</b><small>GHI</small></button>
+        <button class="key" data-number="5"><b>5</b><small>JKL</small></button>
+        <button class="key" data-number="6"><b>6</b><small>MNO</small></button>
+
+        <button class="key" data-number="7"><b>7</b><small>PQRS</small></button>
+        <button class="key" data-number="8"><b>8</b><small>TUV</small></button>
+        <button class="key" data-number="9"><b>9</b><small>WXYZ</small></button>
+
+        <span></span>
+        <button class="key zero" data-number="0"><b>0</b></button>
+        <span></span>
+      </div>
+
+      <p id="errorMessage" class="error-message"></p>
+
+      <div class="passcode-bottom">
+        <button id="emergency">Emergency</button>
+        <button id="cancel">Cancel</button>
+      </div>
+    </section>
+
+    <!-- POPUP NOTIFIKASI -->
+    <div id="popup" class="popup">
+      <div class="popup-icon">♡</div>
+      <div class="popup-text">
+        <strong id="popupTitle">Pesan baru</strong>
+        <p id="popupMessage">Ada sesuatu untuk kamu ✨</p>
+      </div>
+      <span class="now">now</span>
+    </div>
+
+    <div class="home-indicator"></div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
