@@ -142,20 +142,16 @@ document.addEventListener("keydown", event => {
 // Popup notifikasi otomatis.
 const notifications = [
   {
-    title: "Birthday Reminder 🎂",
-    message: "November 21 · in 35 days"
-  },
-  {
     title: "Pesan baru",
     message: "Seseorang mengirimkan pesan untukmu ♡"
   },
   {
-    title: "Little reminder ✨",
-    message: "Semoga harimu menyenangkan."
+    title: "Ms Jeanne",
+    message: "sayang, jgn kaget!."
   },
   {
-    title: "Catatan kecil",
-    message: "Ada sesuatu yang ingin aku sampaikan."
+    title: "Ms Jeanne",
+    message: "aku mau ke jakarta."
   }
 ];
 
