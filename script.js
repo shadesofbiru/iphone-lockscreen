@@ -142,8 +142,8 @@ document.addEventListener("keydown", event => {
 // Popup notifikasi otomatis.
 const notifications = [
   {
-    title: "Pesan baru",
-    message: "Seseorang mengirimkan pesan untukmu ♡"
+    title: "Ms Jeanne",
+    message: "sayang!"
   },
   {
     title: "Ms Jeanne",
