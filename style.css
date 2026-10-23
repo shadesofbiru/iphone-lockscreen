@@ -1281,3 +1281,45 @@ body {
   font-size: 13px;
 }
 
+
+/* Perbaikan kompatibilitas Safari iPhone */
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  min-height: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  min-height: 100dvh;
+  overscroll-behavior: none;
+}
+
+.phone {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  -webkit-transform: translateZ(0);
+}
+
+/* Pastikan aplikasi memenuhi frame ponsel */
+#lockScreen,
+#passcodeScreen,
+#unlockedScreen,
+#calendarApp,
+#photosApp {
+  box-sizing: border-box;
+}
+
+/* Dukungan area aman pada iPhone */
+@supports (padding: env(safe-area-inset-top)) {
+  .phone {
+    padding-top: env(safe-area-inset-top);
+  }
+}
+
