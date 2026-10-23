@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -26,7 +27,7 @@
         <div class="app-icon">☷</div>
         <div class="notification-text">
           <strong>Jeanne Days!</strong>
-          <p>November 18 · in 32 days</p>
+          <p>April 18 · in 9 days</p>
         </div>
         <span class="now">now</span>
       </div>
@@ -78,15 +79,332 @@
     <div id="popup" class="popup">
       <div class="popup-icon">♡</div>
       <div class="popup-text">
-        <strong id="popupTitle">Ms Jeanne</strong>
-        <p id="popupMessage">sayang!.</p>
+        <strong id="popupTitle">Pesan baru</strong>
+        <p id="popupMessage">Pesan baru ✨</p>
       </div>
       <span class="now">now</span>
     </div>
 
+    <!-- TAMPILAN 3: AFTER LOGIN -->
+    <section id="unlockedScreen" class="unlocked-screen">
+      <div class="home-widgets">
+        <div class="home-widget weather-widget">
+        <small><b>JAKARTA</b> ☀</small>
+        <strong><b>28°</b> ☀</strong>
+        <p>Cerah berawan</p>
+        </div>
+
+        <div class="home-widget calendar-widget">
+        <small id="calendarDay">SATURDAY</small>
+        <strong id="calendarDate"><b>18</b></strong>
+        <p>18♡ Jeanne Days! || <b>All day</b></p>
+      </div>
+      </div>
+
+
+<div class="app-grid">
+
+  <button class="app-item" data-app="FaceTime">
+    <span class="app-icon-box ios-icon facetime-icon">
+      <svg viewBox="0 0 64 64"><rect x="9" y="17" width="32" height="30" rx="7" fill="white"/><path d="M42 26 55 17Q58 16 58 21V43Q58 48 54 45L42 37Z" fill="white"/></svg>
+    </span>
+    <span>FaceTime</span>
+  </button>
+
+  <button class="app-item" data-app="Calendar">
+  <span class="app-icon-box ios-icon calendar-icon">
+    <span class="calendar-red" id="calendarDayShort">SAT</span>
+    <span class="calendar-number" id="calendarDateNumber">18</span>
+  </span>
+  <span>Calendar</span>
+</button>
+
+  <button class="app-item" data-app="Photos">
+    <span class="app-icon-box ios-icon photos-icon">
+      <svg viewBox="0 0 64 64">
+        <g transform="translate(32 32)">
+          {#each Array.from({length: 8}, (_, i) => i) as i}
+            <ellipse cx="0" cy="-13" rx="7" ry="13" fill={["#ff514b","#ff9f32","#f6d53e","#4bc66b","#31b8e8","#477cf5","#9b64e9","#ed62b4"][i]} transform={`rotate(${i*45})`} />
+          {/each}
+        </g>
+        <circle cx="32" cy="32" r="5" fill="#fff9"/>
+      </svg>
+    </span>
+    <span>Photos</span>
+  </button>
+
+  <button class="app-item" data-app="Camera">
+    <span class="app-icon-box ios-icon camera-icon">
+      <svg viewBox="0 0 64 64">
+        <rect x="8" y="19" width="48" height="32" rx="8" fill="url(#camBody)"/>
+        <path d="M20 19 24 13H39L44 19" fill="#34343a"/>
+        <circle cx="32" cy="35" r="12" fill="#17171b" stroke="#777982" stroke-width="3"/>
+        <circle cx="32" cy="35" r="7" fill="#242d39" stroke="#111" stroke-width="2"/>
+        <circle cx="28" cy="31" r="3" fill="#a9c7e9" opacity=".8"/>
+        <defs><linearGradient id="camBody" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#656873"/><stop offset="1" stop-color="#25262c"/></linearGradient></defs>
+      </svg>
+    </span>
+    <span>Camera</span>
+  </button>
+
+  <button class="app-item" data-app="Mail">
+    <span class="app-icon-box ios-icon mail-icon">
+      <svg viewBox="0 0 64 64"><rect x="8" y="15" width="48" height="34" rx="6" fill="white"/><path d="M10 19 32 36 54 19" fill="none" stroke="#299cf3" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 46 25 32M54 46 39 32" fill="none" stroke="#8bcfff" stroke-width="2"/></svg>
+    </span>
+    <span>Mail</span>
+  </button>
+
+  <button class="app-item" data-app="Clock">
+    <span class="app-icon-box ios-icon clock-icon">
+      <svg viewBox="0 0 64 64">
+        <circle cx="32" cy="32" r="27" fill="#fafafa"/>
+        <circle cx="32" cy="32" r="24" fill="none" stroke="#222" stroke-width="1.5"/>
+        {#each Array.from({length: 12}, (_, i) => i) as i}
+          <line x1="32" y1="9" x2="32" y2="13" stroke="#111" stroke-width="1.8" stroke-linecap="round" transform={`rotate(${i*30} 32 32)`}/>
+        {/each}
+        <path d="M32 32V16M32 32 20 38" stroke="#111" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="32" cy="32" r="2.5" fill="#ef9b42"/>
+      </svg>
+    </span>
+    <span>Clock</span>
+  </button>
+
+  <button class="app-item" data-app="Maps">
+    <span class="app-icon-box ios-icon maps-icon">
+      <svg viewBox="0 0 64 64">
+        <rect width="64" height="64" rx="14" fill="#b8e6d0"/>
+        <path d="M-3 12 21 3 39 15 68 5V27L42 39 20 29-3 40Z" fill="#f6f1d5"/>
+        <path d="M-2 49 20 30 41 39 66 27V51L40 65H-2Z" fill="#f4d78b"/>
+        <path d="M5 0 18 21 12 37 28 64M44 -3 36 17 49 31 43 64" stroke="#fff" stroke-width="5" fill="none"/>
+        <path d="M20 0 29 17 26 31 39 45" stroke="#5da9ef" stroke-width="5" fill="none"/>
+        <circle cx="34" cy="29" r="11" fill="#2788ef" stroke="#fff" stroke-width="3"/>
+        <path d="M31 23 42 29 31 35 33 29Z" fill="white"/>
+      </svg>
+    </span>
+    <span>Maps</span>
+  </button>
+
+  <button class="app-item" data-app="Weather">
+    <span class="app-icon-box ios-icon weather-icon">
+      <svg viewBox="0 0 64 64">
+        <defs><linearGradient id="sky" x2="0" y2="1"><stop stop-color="#42baff"/><stop offset="1" stop-color="#1674e8"/></linearGradient></defs>
+        <rect width="64" height="64" rx="14" fill="url(#sky)"/>
+        <circle cx="42" cy="23" r="12" fill="#ffd84d"/>
+        <g stroke="#ffe36b" stroke-width="2.5" stroke-linecap="round"><path d="M42 6V9M42 37V40M25 23H28M56 23H59M30 11 32 14M52 32 55 35M54 11 52 14"/></g>
+        <path d="M14 43C5 42 7 29 18 29 22 16 39 21 40 31 53 30 57 44 45 47H17Z" fill="#fff"/>
+      </svg>
+    </span>
+    <span>Weather</span>
+  </button>
+
+  <button class="app-item" data-app="Notes">
+    <span class="app-icon-box ios-icon notes-icon">
+      <svg viewBox="0 0 64 64"><rect x="8" y="5" width="48" height="54" rx="6" fill="#fffdf5"/><path d="M8 20H56" stroke="#f6c84b" stroke-width="12"/><path d="M14 31H50M14 40H50M14 49H43" stroke="#d8d8d8" stroke-width="2"/></svg>
+    </span>
+    <span>Notes</span>
+  </button>
+
+  <button class="app-item" data-app="Reminders">
+    <span class="app-icon-box ios-icon reminders-icon">
+      <svg viewBox="0 0 64 64"><rect x="8" y="7" width="48" height="50" rx="7" fill="white"/><circle cx="19" cy="21" r="5" fill="none" stroke="#168cff" stroke-width="2.5"/><circle cx="19" cy="33" r="5" fill="none" stroke="#ff4f56" stroke-width="2.5"/><circle cx="19" cy="45" r="5" fill="none" stroke="#ffb82e" stroke-width="2.5"/><path d="M29 21H49M29 33H49M29 45H49" stroke="#d6d7db" stroke-width="2.5" stroke-linecap="round"/></svg>
+    </span>
+    <span>Reminders</span>
+  </button>
+
+  <button class="app-item" data-app="Books">
+    <span class="app-icon-box ios-icon books-icon">
+      <svg viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="url(#bookBg)"/><path d="M12 17Q23 12 32 20V49Q22 42 12 46ZM52 17Q41 12 32 20V49Q42 42 52 46Z" fill="white"/><path d="M32 20V49" stroke="#ffddb0" stroke-width="2"/><defs><linearGradient id="bookBg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffbd3e"/><stop offset="1" stop-color="#f07813"/></linearGradient></defs></svg>
+    </span>
+    <span>Books</span>
+  </button>
+
+  <button class="app-item" data-app="App Store">
+    <span class="app-icon-box ios-icon appstore-icon">
+      <svg viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="url(#storeBg)"/><g stroke="white" stroke-width="5" stroke-linecap="round"><path d="M21 15 43 51M43 15 21 51M15 39H49"/></g><defs><linearGradient id="storeBg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#4bc9ff"/><stop offset="1" stop-color="#0865e8"/></linearGradient></defs></svg>
+    </span>
+    <span>App Store</span>
+  </button>
+
+  <button class="app-item" data-app="TV">
+    <span class="app-icon-box ios-icon tv-icon">
+      <svg viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#17171a"/><path d="M15 20H49V44H15Z" fill="#f8f8f8"/><path d="M26 20 20 12M38 20 44 12" stroke="#bfc3cc" stroke-width="3" stroke-linecap="round"/><text x="32" y="36" fill="#202027" font-size="12" text-anchor="middle" font-weight="700">tv</text></svg>
+    </span>
+    <span>TV</span>
+  </button>
+
+  <button class="app-item" data-app="Health">
+    <span class="app-icon-box ios-icon health-icon">
+      <svg viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#fff"/><path d="M32 49 13 31C1 16 21 7 32 22 43 7 63 16 51 31Z" fill="url(#heartBg)"/><defs><linearGradient id="heartBg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ff789a"/><stop offset="1" stop-color="#ed235d"/></linearGradient></defs></svg>
+    </span>
+    <span>Health</span>
+  </button>
+
+  <button class="app-item" data-app="Home">
+    <span class="app-icon-box ios-icon home-icon">
+      <svg viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#fff"/><path d="M8 29 32 9 56 29 51 34 46 30V53H18V30L13 34Z" fill="#f8a928"/><path d="M24 53V34H40V53" fill="#ffe2a2"/><path d="M21 31 32 21 43 31V43H21Z" fill="#ffd36e"/></svg>
+    </span>
+    <span>Home</span>
+  </button>
+
+  <button class="app-item" data-app="Wallet">
+    <span class="app-icon-box ios-icon wallet-icon">
+      <svg viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#24252a"/><rect x="10" y="15" width="42" height="35" rx="6" fill="#8dc8f6"/><rect x="10" y="21" width="42" height="29" rx="5" fill="#f5f5f5"/><rect x="10" y="28" width="42" height="7" fill="#e95c5c"/><rect x="10" y="35" width="42" height="7" fill="#f4c34c"/><rect x="10" y="42" width="42" height="8" rx="3" fill="#63b7a2"/></svg>
+    </span>
+    <span>Wallet</span>
+  </button>
+
+  <button class="app-item" data-app="Settings">
+    <span class="app-icon-box ios-icon settings-icon">
+      <svg viewBox="0 0 64 64"><defs><linearGradient id="gearBg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f0f1f4"/><stop offset="1" stop-color="#a7abb4"/></linearGradient></defs><rect width="64" height="64" rx="14" fill="url(#gearBg)"/><path d="M29 8H35L37 14 42 16 47 13 51 18 48 23 50 28 56 31V37L50 39 48 44 51 49 47 53 42 50 37 52 35 58H29L27 52 22 50 17 53 13 49 16 44 14 39 8 37V31L14 28 16 23 13 18 17 13 22 16 27 14Z" fill="#777c86" stroke="#f7f7f8" stroke-width="1.5"/><circle cx="32" cy="34" r="14" fill="#d9dce1" stroke="#676b74" stroke-width="3"/><circle cx="32" cy="34" r="7" fill="#7e838d"/></svg>
+    </span>
+    <span>Settings</span>
+  </button>
+
+  <button class="app-item" id="lockAgain" aria-label="Lock Screen">
+  <span class="app-icon-box ios-icon lock-icon">
+    <svg viewBox="0 0 64 64" aria-hidden="true">
+      <defs>
+        <linearGradient id="lockGradient" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#65d6ff"/>
+          <stop offset="100%" stop-color="#1764df"/>
+        </linearGradient>
+      </defs>
+      <rect width="64" height="64" rx="14" fill="url(#lockGradient)"/>
+      <path d="M21 28V22a11 11 0 0 1 22 0v6"
+        fill="none" stroke="white" stroke-width="5" stroke-linecap="round"/>
+      <rect x="15" y="27" width="34" height="27" rx="7" fill="white"/>
+      <circle cx="32" cy="38" r="3.5" fill="#2778dc"/>
+      <path d="M32 41v5" stroke="#2778dc" stroke-width="3" stroke-linecap="round"/>
+    </svg>
+  </span>
+  <span>Lock Screen</span>
+</button>
+
+<!-- Calendar App Page -->
+<section id="calendarApp" class="calendar-app">
+  <div class="calendar-app-header">
+    <button id="calendarBack" class="calendar-back">‹ Home</button>
+    <h2>Calendar</h2>
+    <button id="calendarToday" class="calendar-today">Today</button>
+  </div>
+
+  <div class="calendar-month-header">
+    <button id="calendarPrevMonth" aria-label="Previous month">‹</button>
+    <h3 id="calendarMonthTitle">October 2026</h3>
+    <button id="calendarNextMonth" aria-label="Next month">›</button>
+  </div>
+
+  <div class="calendar-month-grid" id="calendarMonthGrid"></div>
+
+  <div class="calendar-events">
+    <h3 id="calendarSelectedTitle">Events</h3>
+    <p id="calendarEventMessage">No events scheduled</p>
+  </div>
+
+  <div class="calendar-app-indicator"></div>
+</section>
+ 
+<!-- Photos App Page -->
+<section id="photosApp" class="photos-app">
+
+  <header class="photos-header">
+    <div class="photos-topbar">
+      <button id="photosBack" class="photos-back">‹ Home</button>
+      <button id="photosSelect" class="photos-select">Select</button>
+    </div>
+
+    <h1>Library</h1>
+    <p id="photosCount">Your favorite moments</p>
+
+    <div class="photos-tabs">
+      <button class="photos-tab" data-view="Years">Years</button>
+      <button class="photos-tab" data-view="Months">Months</button>
+      <button class="photos-tab active" data-view="All">All</button>
+    </div>
+  </header>
+
+  <div id="photosGrid" class="photos-grid">
+    <button class="photo-tile" data-photo="0">
+      <div class="photo-placeholder photo-one"></div>
+    </button>
+    <button class="photo-tile" data-photo="1">
+      <div class="photo-placeholder photo-two"></div>
+    </button>
+    <button class="photo-tile" data-photo="2">
+      <div class="photo-placeholder photo-three"></div>
+    </button>
+    <button class="photo-tile" data-photo="3">
+      <div class="photo-placeholder photo-four"></div>
+    </button>
+    <button class="photo-tile" data-photo="4">
+      <div class="photo-placeholder photo-five"></div>
+    </button>
+    <button class="photo-tile" data-photo="5">
+      <div class="photo-placeholder photo-six"></div>
+    </button>
+    <button class="photo-tile" data-photo="6">
+      <div class="photo-placeholder photo-seven"></div>
+    </button>
+    <button class="photo-tile" data-photo="7">
+      <div class="photo-placeholder photo-eight"></div>
+    </button>
+    <button class="photo-tile" data-photo="8">
+      <div class="photo-placeholder photo-nine"></div>
+    </button>
+    <button class="photo-tile" data-photo="9">
+      <div class="photo-placeholder photo-ten"></div>
+    </button>
+    <button class="photo-tile" data-photo="10">
+      <div class="photo-placeholder photo-eleven"></div>
+    </button>
+    <button class="photo-tile" data-photo="11">
+      <div class="photo-placeholder photo-twelve"></div>
+    </button>
+  </div>
+
+  <div class="photos-bottom-nav">
+    <button class="photos-nav-item active" data-photos-nav="Library">
+      <span>▦</span>
+      <small>Library</small>
+    </button>
+    <button class="photos-nav-item" data-photos-nav="Collections">
+      <span>▧</span>
+      <small>Collections</small>
+    </button>
+    <button class="photos-nav-item" data-photos-nav="Albums">
+      <span>▤</span>
+      <small>Albums</small>
+    </button>
+    <button class="photos-nav-item" data-photos-nav="Search">
+      <span>⌕</span>
+      <small>Search</small>
+    </button>
+  </div>
+
+  <div id="photoViewer" class="photo-viewer">
+    <button id="photoViewerClose" class="photo-viewer-close">×</button>
+    <div id="photoViewerContent" class="photo-viewer-content"></div>
+    <p id="photoViewerCaption">Photo</p>
+  </div>
+
+  <div class="photos-home-indicator"></div>
+</section>
+
+
+
+
+
+
+
+
+
+</div>
+      <!-- Edit isi halaman di sini -->
+      <div class="wallpaper">
+      </div>
+        </section>
     <div class="home-indicator"></div>
   </main>
-
   <script src="script.js"></script>
 </body>
 </html>
