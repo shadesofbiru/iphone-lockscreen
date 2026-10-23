@@ -1,4 +1,3 @@
-
 const clock = document.getElementById("clock");
 const statusTime = document.getElementById("statusTime");
 const dateLabel = document.getElementById("date");
