@@ -389,3 +389,896 @@ body {
   .key { width: 72px; height: 72px; }
   .status-bar { left: 32px; right: 32px; }
 }
+
+
+/* Halaman setelah login */
+.unlocked-screen {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  padding: 100px 24px 40px;
+  background: linear-gradient(160deg, #25203a, #101018);
+  color: white;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+  overflow-y: auto;
+}
+
+.unlocked-screen.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.unlocked-screen h1 {
+  font-size: 30px;
+}
+
+.unlocked-screen .content {
+  margin-top: 30px;
+}
+
+
+
+/* HOME SCREEN */
+.unlocked-screen {
+  position: absolute;
+  inset: 0;
+  z-index: 8;
+  padding: 70px 16px 95px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border-radius: inherit;
+  background: linear-gradient(
+    145deg,
+    #102c55dd,
+    #18122ee8 60%,
+    #431e48dd
+  );
+  color: white;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity .3s ease;
+  scrollbar-width: none;
+}
+
+.unlocked-screen.visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.home-status {
+  position: absolute;
+  top: 22px;
+  left: 28px;
+  right: 28px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.home-widgets {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 26px;
+}
+
+.home-widget {
+  min-width: 0;
+  height: 140px;
+  padding: 13px;
+  border-radius: 22px;
+  color: white;
+  background: #ffffff25;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.home-widget small {
+  font-size: 12px;
+}
+
+.weather-widget {
+  background: linear-gradient(145deg, #1688e7dd, #69b9e6bb);
+}
+
+.weather-widget strong {
+  display: block;
+  margin-top: 4px;
+  font-size: 43px;
+  font-weight: 300;
+}
+
+.home-widget p {
+  margin: 5px 0;
+  font-size: 11px;
+}
+
+.calendar-widget {
+  background: #f5f3f3ee;
+  color: #222;
+}
+
+.calendar-widget small {
+  color: #ff5555;
+  font-weight: 700;
+}
+
+.calendar-widget strong {
+  display: block;
+  font-size: 43px;
+  font-weight: 300;
+}
+
+.calendar-widget p {
+  font-size: 11px;
+}
+
+.app-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  column-gap: 7px;
+  row-gap: 19px;
+}
+
+.app-item {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: white;
+  font: inherit;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+.app-icon-box {
+  width: clamp(47px, 15vw, 61px);
+  height: clamp(47px, 15vw, 61px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  background: white;
+  color: #222;
+  font-size: 29px;
+  box-shadow: 0 3px 8px #0002;
+}
+
+.app-item:active,
+.dock-app:active {
+  transform: scale(.9);
+}
+
+.facetime { background: #16cb56; color: white; }
+.calendar-app { flex-direction: column; }
+.calendar-app small { color: #ef4545; font-size: 9px; }
+.calendar-app b { font-size: 28px; font-weight: 400; }
+.photos { background: #fff; }
+.camera-app { background: #d9d9df; }
+.mail { background: #08aaf1; color: white; }
+.clock-app { background: #eee; }
+.maps { background: #e6f5dc; }
+.weather-app { background: #238de8; }
+.notes { background: #fff0a4; }
+.reminders { background: #fff; }
+.stocks { background: #292a31; color: #65e3c1; }
+.books { background: #ff982e; color: white; }
+.appstore { background: #1688ee; color: white; }
+.podcasts { background: #b64ce2; color: white; }
+.tv { background: #171717; color: white; font-size: 19px; }
+.health { background: #fff; color: #fa4776; }
+.home-app { background: #fff2cf; color: #f6a52e; }
+.wallet { background: #e4e4e4; }
+.settings { background: #c8cbd1; }
+
+.home-page-dots {
+  margin: 19px 0 16px;
+  text-align: center;
+  font-size: 12px;
+  letter-spacing: 5px;
+}
+
+.app-dock {
+  position: sticky;
+  bottom: -80px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin: 0 -5px;
+  padding: 12px;
+  border-radius: 25px;
+  background: #ffffff40;
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+}
+
+.dock-app {
+  aspect-ratio: 1;
+  border: 0;
+  border-radius: 15px;
+  font-size: 29px;
+  cursor: pointer;
+  transition: transform .1s;
+}
+
+.phone-app, .messages-app { background: #16cb56; color: white; }
+.safari-app { background: #f4f7ff; }
+.messages-app { font-size: 23px; }
+.music-app { background: #fa3457; color: white; }
+
+.app-message {
+  display: none;
+  margin: 12px 0;
+  padding: 12px;
+  border-radius: 15px;
+  background: #111b;
+  text-align: center;
+  font-size: 13px;
+}
+
+.app-message.visible {
+  display: block;
+}
+
+.lock-again {
+  display: block;
+  margin: 15px auto 0;
+  padding: 8px 14px;
+  border: 1px solid #ffffff55;
+  border-radius: 20px;
+  background: #1117;
+  color: white;
+  cursor: pointer;
+}
+
+@media (max-height: 740px) {
+  .unlocked-screen { padding-top: 60px; }
+  .home-widget { height: 115px; padding: 10px; }
+  .weather-widget strong { font-size: 34px; }
+  .app-grid { row-gap: 12px; }
+  .app-icon-box {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+  }
+}
+
+
+/* iOS-inspired app icons with glass finish */
+.app-grid {
+  column-gap: 7px;
+  row-gap: 18px;
+}
+
+.app-item {
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: -.15px;
+  text-shadow: 0 1px 4px #0006;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.ios-icon {
+  position: relative;
+  isolation: isolate;
+  width: clamp(52px, 15.5vw, 64px);
+  height: clamp(52px, 15.5vw, 64px);
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  border-radius: 22%;
+  border: 1px solid #ffffff35;
+  box-shadow:
+    inset 0 1px 1px #ffffff8a,
+    inset 0 -1px 2px #0002,
+    0 3px 8px #0003;
+  transition: transform .16s ease, filter .16s ease;
+}
+
+.ios-icon::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  border-radius: inherit;
+  background: linear-gradient(
+    145deg,
+    #ffffff30 0%,
+    #ffffff08 35%,
+    transparent 60%,
+    #0000000b 100%
+  );
+  box-shadow: inset 0 0 0 1px #ffffff12;
+}
+
+.ios-icon svg {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.app-item:active .ios-icon {
+  transform: scale(.9);
+  filter: brightness(1.12);
+}
+
+.facetime-icon {
+  background: linear-gradient(145deg, #42ed75, #04a83b);
+}
+
+.calendar-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1px;
+  background: linear-gradient(180deg, #fff 0%, #fff 24%, #f8f8fa 24%);
+  color: #111;
+  text-shadow: none;
+}
+
+.calendar-red {
+  color: #f04444;
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: .5px;
+}
+
+.calendar-number {
+  font-size: 33px;
+  line-height: 1.05;
+  font-weight: 400;
+}
+
+.photos-icon {
+  background: linear-gradient(145deg, #fff, #f4f3f7);
+}
+
+.camera-icon {
+  background: linear-gradient(145deg, #d9dbe1, #8e929d);
+}
+
+.mail-icon {
+  background: linear-gradient(145deg, #51d5ff, #0781ec);
+}
+
+.clock-icon {
+  background: linear-gradient(145deg, #e9e9eb, #aaaeb5);
+}
+
+.maps-icon {
+  background: linear-gradient(145deg, #b4ebd0, #dff1c9);
+}
+
+.weather-icon {
+  background: linear-gradient(145deg, #4cc7ff, #1571e5);
+}
+
+.notes-icon {
+  background: linear-gradient(145deg, #fff4b4, #f7f7f4);
+}
+
+.reminders-icon {
+  background: linear-gradient(145deg, #fff, #eceef2);
+}
+
+.stocks-icon {
+  background: linear-gradient(145deg, #41434b, #111217);
+}
+
+.books-icon {
+  background: linear-gradient(145deg, #ffc052, #e86b0b);
+}
+
+.appstore-icon {
+  background: linear-gradient(145deg, #5ad6ff, #0064e8);
+}
+
+.podcasts-icon {
+  background: linear-gradient(145deg, #e97af5, #7a2ed7);
+}
+
+.tv-icon {
+  background: linear-gradient(145deg, #34343a, #050506);
+}
+
+.health-icon {
+  background: linear-gradient(145deg, #fff, #f9f3f5);
+}
+
+.home-icon {
+  background: linear-gradient(145deg, #fff, #fff4d9);
+}
+
+.wallet-icon {
+  background: linear-gradient(145deg, #3a3b41, #111216);
+}
+
+.settings-icon {
+  background: linear-gradient(145deg, #e6e7eb, #9da1aa);
+}
+
+@media (max-width: 370px) {
+  .ios-icon {
+    width: 49px;
+    height: 49px;
+    border-radius: 12px;
+  }
+
+  .app-grid {
+    row-gap: 14px;
+  }
+
+  .app-item {
+    font-size: 10px;
+  }
+}
+
+/* Mencegah scroll pada halaman after login */
+.unlocked-screen {
+  overflow: hidden !important;
+  overscroll-behavior: none;
+  touch-action: pan-x pan-y;
+}
+
+/* Pastikan isi halaman tidak memicu scroll */
+.unlocked-screen .app-grid {
+  overflow: hidden;
+}
+
+/* Cegah scroll pada halaman ponsel */
+.phone {
+  overflow: hidden;
+}
+
+
+
+.calendar-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  background: linear-gradient(#ffffff 0 25%, #fafafa 25% 100%);
+  color: #111;
+  text-shadow: none;
+}
+
+.calendar-red {
+  color: #ed4141;
+  font-size: 10px;
+  font-weight: 750;
+  line-height: 1.4;
+}
+
+.calendar-number {
+  color: #171717;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 1.05;
+}
+
+
+.calendar-app {
+  position: absolute;
+  inset: 0;
+  z-index: 50;
+  display: none;
+  flex-direction: column;
+  padding: 54px 18px 22px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  background: #f8f8fa;
+  color: #171719;
+  border-radius: inherit;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.calendar-app.visible {
+  display: flex;
+}
+
+.calendar-app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.calendar-app-header h2 {
+  font-size: 22px;
+  margin: 0;
+  font-weight: 750;
+}
+
+.calendar-back,
+.calendar-today,
+.calendar-month-header button {
+  border: 0;
+  background: transparent;
+  color: #087aff;
+  cursor: pointer;
+  font: inherit;
+}
+
+.calendar-back,
+.calendar-today {
+  font-size: 14px;
+}
+
+.calendar-month-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 28px 0 18px;
+}
+
+.calendar-month-header h3 {
+  margin: 0;
+  font-size: 19px;
+}
+
+.calendar-month-header button {
+  font-size: 30px;
+  padding: 0 8px;
+}
+
+.calendar-month-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 10px 2px;
+  text-align: center;
+}
+
+.calendar-weekday {
+  color: #777780;
+  font-size: 11px;
+  font-weight: 600;
+  padding-bottom: 8px;
+}
+
+.calendar-day {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  margin: auto;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: #202024;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.calendar-day.other-month {
+  color: #b8b8be;
+}
+
+.calendar-day.is-today {
+  color: #fff;
+  background: #ff3b30;
+  font-weight: 700;
+}
+
+.calendar-day.is-selected:not(.is-today) {
+  outline: 2px solid #087aff;
+  outline-offset: -2px;
+}
+
+.calendar-events {
+  margin-top: 30px;
+  border-top: 1px solid #dedee3;
+  padding-top: 18px;
+}
+
+.calendar-events h3 {
+  font-size: 18px;
+  margin: 0 0 10px;
+}
+
+.calendar-events p {
+  font-size: 14px;
+  color: #777780;
+}
+
+.calendar-app-indicator {
+  position: sticky;
+  bottom: 0;
+  margin: auto auto 0;
+  flex-shrink: 0;
+  width: 108px;
+  height: 4px;
+  border-radius: 10px;
+  background: #222;
+}
+
+
+/* Lingkari setiap tanggal 18 */
+.calendar-day.jeanne-day {
+  border: 2px solid #ff3b30;
+  font-weight: 700;
+}
+
+/* Tanggal 18 yang sedang dipilih */
+.calendar-day.jeanne-day.is-selected {
+  background: #ff3b30;
+  color: white;
+}
+
+/* Jika tanggal 18 adalah hari ini */
+.calendar-day.jeanne-day.is-today {
+  background: #ff3b30;
+  color: white;
+  border: 2px solid #ff3b30;
+}
+
+
+/* Lingkari tanggal dengan acara spesial */
+.calendar-day.special-event {
+  border: 2px solid #ff3b30;
+  font-weight: 700;
+}
+
+/* Tanggal spesial yang sedang dipilih */
+.calendar-day.special-event.is-selected,
+.calendar-day.special-event.is-today {
+  background: #ff3b30;
+  color: white;
+}
+
+
+.photos-app {
+  position: absolute;
+  inset: 0;
+  z-index: 55;
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: inherit;
+  background: #fff;
+  color: #171719;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.photos-app.visible {
+  display: flex;
+}
+
+.photos-header {
+  flex-shrink: 0;
+  padding: 48px 16px 12px;
+  background: rgba(255, 255, 255, .97);
+}
+
+.photos-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.photos-back,
+.photos-select {
+  border: 0;
+  background: transparent;
+  color: #087aff;
+  font: inherit;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.photos-header h1 {
+  margin: 20px 0 2px;
+  font-size: 34px;
+  letter-spacing: -1px;
+  font-weight: 750;
+}
+
+.photos-header p {
+  margin: 0;
+  color: #85858b;
+  font-size: 12px;
+}
+
+.photos-tabs {
+  display: flex;
+  gap: 6px;
+  margin-top: 18px;
+  padding: 4px;
+  background: #ededf0;
+  border-radius: 10px;
+}
+
+.photos-tab {
+  flex: 1;
+  padding: 7px 2px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: #55555b;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.photos-tab.active {
+  background: #fff;
+  color: #111;
+  font-weight: 650;
+  box-shadow: 0 1px 3px #00000012;
+}
+
+.photos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-auto-rows: 1fr;
+  gap: 2px;
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  align-content: start;
+  padding-bottom: 8px;
+}
+
+.photo-tile {
+  position: relative;
+  aspect-ratio: 1;
+  min-width: 0;
+  overflow: hidden;
+  padding: 0;
+  border: 0;
+  background: #eee;
+  cursor: pointer;
+}
+
+.photo-placeholder {
+  width: 100%;
+  height: 100%;
+  transition: transform .2s ease;
+}
+
+.photo-tile:active .photo-placeholder {
+  transform: scale(.96);
+}
+
+.photo-one {
+  background: linear-gradient(145deg, #f7d5ba, #df8f78 48%, #6d777e);
+}
+.photo-two {
+  background: linear-gradient(160deg, #c2e4f0, #6eacc0 45%, #416d83);
+}
+.photo-three {
+  background: linear-gradient(140deg, #f4c2d7, #c277a2 55%, #5e456d);
+}
+.photo-four {
+  background: linear-gradient(160deg, #f8e5ad, #e5a85d 50%, #8e6950);
+}
+.photo-five {
+  background: linear-gradient(135deg, #d9d9e9, #8588b9 55%, #464d75);
+}
+.photo-six {
+  background: linear-gradient(160deg, #bce6c4, #5fa17a 50%, #35675b);
+}
+.photo-seven {
+  background: linear-gradient(140deg, #f4d3b2, #cb8765 55%, #674d5a);
+}
+.photo-eight {
+  background: linear-gradient(160deg, #d6ecfa, #85b8dc 50%, #506e9a);
+}
+.photo-nine {
+  background: linear-gradient(145deg, #ead5fa, #b18ad2 55%, #67517f);
+}
+.photo-ten {
+  background: linear-gradient(160deg, #f5c6bd, #e17c80 50%, #96536b);
+}
+.photo-eleven {
+  background: linear-gradient(135deg, #dce7c2, #a5b87c 55%, #647c5c);
+}
+.photo-twelve {
+  background: linear-gradient(145deg, #c6d8e8, #778fae 55%, #414e6b);
+}
+
+.photos-bottom-nav {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 4px 23px;
+  border-top: 1px solid #eeeeef;
+  background: rgba(250, 250, 252, .98);
+}
+
+.photos-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  min-width: 50px;
+  border: 0;
+  background: transparent;
+  color: #777780;
+  cursor: pointer;
+}
+
+.photos-nav-item span {
+  font-size: 21px;
+  line-height: 1;
+}
+
+.photos-nav-item small {
+  font-size: 10px;
+}
+
+.photos-nav-item.active {
+  color: #087aff;
+}
+
+.photos-home-indicator {
+  position: absolute;
+  bottom: 7px;
+  left: 50%;
+  width: 108px;
+  height: 4px;
+  transform: translateX(-50%);
+  border-radius: 10px;
+  background: #171719;
+  pointer-events: none;
+}
+
+.photo-viewer {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #080808;
+  color: #fff;
+}
+
+.photo-viewer.visible {
+  display: flex;
+}
+
+.photo-viewer-close {
+  position: absolute;
+  top: 44px;
+  right: 18px;
+  width: 38px;
+  height: 38px;
+  border: 0;
+  border-radius: 50%;
+  background: #292929;
+  color: #fff;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.photo-viewer-content {
+  width: 100%;
+  aspect-ratio: 1;
+  max-height: 65%;
+}
+
+.photo-viewer-content .photo-placeholder {
+  width: 100%;
+  height: 100%;
+}
+
+.photo-viewer-caption {
+  color: #ddd;
+  font-size: 13px;
+}
+
