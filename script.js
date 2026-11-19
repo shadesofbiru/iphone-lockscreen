@@ -434,7 +434,7 @@ const photosSelect = document.getElementById("photosSelect");
 const libraryPhotoCount = 37;
 
 const libraryPhotoUrl = index =>
-  `photos/foto${index + 1}.jpg`;
+  `foto${index + 1}.jpg`;
 
 if (photosGrid) {
   photosGrid.innerHTML = "";
