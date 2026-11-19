@@ -1,4 +1,3 @@
-
 const clock = document.getElementById("clock");
 const statusTime = document.getElementById("statusTime");
 const dateLabel = document.getElementById("date");
@@ -435,7 +434,7 @@ const photosSelect = document.getElementById("photosSelect");
 const libraryPhotoCount = 37;
 
 const libraryPhotoUrl = index =>
-  `foto${index + 1}.jpg`;
+  `photos/foto${index + 1}.jpg`;
 
 if (photosGrid) {
   photosGrid.innerHTML = "";
@@ -641,29 +640,19 @@ const bookLibrary = {
       {
         heading: "Chapter One",
         paragraphs: [
-          ["The City After Dark", "heading"],
-          ["At half past eleven, the city looked as though someone had scattered tiny pieces of silver across a sheet of dark blue velvet."],
-          ["Mira stood beside her bedroom window, watching the lights in the apartments opposite blink out one by one. Somewhere below, a train crossed the bridge, carrying strangers toward places she had only ever imagined."],
-          ["She had always believed that every light belonged to a story. Tonight, for the first time, she wondered whether someone might be watching hers."]
-        ]
-      },
-      {
-        heading: "Chapter One",
-        paragraphs: [
-          ["The Unsent Letter", "heading"],
-          ["On her desk lay a letter she had rewritten seventeen times. The paper was soft at the folds, and a small blue stain marked the corner where her pen had slipped."],
-          ["“You cannot keep waiting for the perfect words,” her brother said from the doorway."],
-          ["“What if the wrong words change everything?” Mira asked."],
-          ["He smiled gently. “Then perhaps everything was waiting to change.”"]
+          [""],
+          [""],
+          [""],
+          [""]
         ]
       },
       {
         heading: "Chapter Two",
         paragraphs: [
-          ["A Different Morning", "heading"],
-          ["The next morning arrived in pale gold. Mira folded the letter, placed it inside an envelope, and wrote a name she had avoided for three years."],
-          ["Her hands trembled as she sealed it. She did not know what answer would come, or whether an answer would come at all."],
-          ["For once, she decided that uncertainty was not a reason to remain still."]
+          [""],
+          [""],
+          [""],
+          [""]
         ]
       }
     ]
@@ -713,35 +702,25 @@ const bookLibrary = {
     ]
   },
 
-  "The Secret Garden": {
-    type: "CLASSIC · ADVENTURE",
+  "Surat Permohonan Maaf": {
+    type: "500 · Words",
     pages: [
       {
-        heading: "Chapter One",
         paragraphs: [
-          ["The Locked Gate", "heading"],
-          ["The garden wall stood hidden behind a tangle of ivy. Its old stones were dark with rain, and branches leaned over the top as if guarding a secret."],
-          ["Clara had passed the wall many times without noticing the small iron gate. One morning, a robin landed on a nearby branch and called until she turned toward it."],
-          ["There, almost buried beneath the leaves, was a keyhole."]
-        ]
-      },
-      {
-        heading: "Chapter One",
-        paragraphs: [
-          ["Beneath the Ivy", "heading"],
-          ["She brushed away the ivy with both hands. The gate was smaller than she expected, and its hinges made a soft, tired sound when she pushed."],
-          ["Beyond it, the garden slept beneath weeds and tangled vines. A stone path disappeared beneath the grass, and an empty fountain stood in the middle."],
-          ["Clara felt no fear. She felt the strange excitement of finding something that had been waiting a very long time."]
-        ]
-      },
-      {
-        heading: "Chapter Two",
-        paragraphs: [
-          ["The First Green Shoot", "heading"],
-          ["Each morning, Clara returned with a small pair of gloves and a tin watering can. She pulled weeds, loosened the earth, and learned to recognize the plants that had survived."],
-          ["One day she discovered a bright green shoot beside the old fountain."],
-          ["It was no bigger than her little finger, but she knelt beside it as if it were a treasure."],
-          ["Spring, she realized, did not arrive all at once. Sometimes it began with one small leaf."]
+          ["Kepada Yts. Hanny Pertiwi aka Biru.", "heading"],
+          ["Pacar dari Jeanne Gumelish.", "heading"],
+          ["Hal : Surat/Essay permohonan maaf.", "heading"],
+          ["Saya yang bertanda tangan di bawah ini:", "heading"],
+          ["Ruth Stefanova aka Jeanne", "heading"],
+          ["Sehubungan dengan tindakan kesalahan dan kelalaian yang Jeanne lakukan, yaitu, kelalaian untuk tidak mematikan DND yang berakhir tidak datang kelas yang di mana kelas tersebut ada kuis pada tanggal 29 Oktober 2026. Jeanne mengaku salah dan menyesal, hal itu seharusnya tidak terjadi yang di mana itu juga akan berimpact pada Jeanne kedepannya, entah baik atau buruk. Jeanne ingin meminta maaf dari lubuk hati Jeanne paling dalam untuk kesalahan dan kelalaian yang Jeanne lakukan."],
+          ["Jeanne paham Biru juga kesal dan kecewa karena Jeanne tidak masuk kelas padahal hari ini ada kuis, dan itu semua terjadi karena kesalahanku dan kelalaianku karena alarm Jeanne yang tidak berbunyi. Padahal hal itu bisa Jeanne cegah dari minggu lalu tapi ternyata Jeanne lupa untuk mematikan Do Not Disturb (DND). Sebenarnya Jeanne sudah memasang alarm tiap kamis dan jumat tapi jadi tidak terdengar karena Jeanne lupa mematikan Do Not Disturb (DND), sehingga alarm yang seharusnya membangunkan Jeanne tidak berbunyi sama sekali. Jeanne sadar, ini bukan hal yang bisa Jeanne jadikan alasan untuk membenarkan tindakan Jeanne. Ini murni karena kurang telitinya dan kelalaian Jeanne dalam mengatur hal-hal sederhana yang seharusnya sudah menjadi tanggung jawab Jeanne."],
+          ["Jeanne benar-benar menyesal karena hal itu terjadi. Jeanne harap Biru merasa bahwa Jeanne menganggap enteng tanggung jawab Jeanne sebagai mahasiswa maupun perasaan Biru sebagai pacar Jeanne. Jeanne tau Biru peduli banget sama Jeanne dan selalu ingin Jeanne lebih bertanggung jawab. Maka dari itu, rasanya sedih banget ketika Jeanne tau kelalaian Jeanne hari ini bikin Biru kesal. Jeanne benar-benar menyesal karena kelalaian kecil itu berdampak besar, bukan hanya pada absen kehadiran Jeanne di kelas tapi juga terhadap nilai kuis Jeanne dan materi yang seharusnya Jeanne dapatkan di kelas hari ini yang di mana senin depan Jeanne UTS. Jeanne seharusnya lebih teliti dan bertanggung jawab, terutama Jeanne sendiri sudah tau ada kuis pada tanggal 29 Oktober 2026. Seharusnya Jeanne memastikan alarm aktif dan juga mematikan Do Not Disturb (DND), atau tidur lebih cepat."],
+          ["Yang paling membuat Jeanne menyesal adalah Jeanne tau Jeanne sudah membuat Biru kecewa dan kesal. Jeanne tau Biru peduli sekali pada Jeanne, pada kuliah Jeanne, dan pada masa depan Jeanne. Padahal Biru sendiri selalu mengingatkan Jeanne untuk lebih bertanggung jawab, dan Jeanne sangat menghargai itu. Karena itu, Jeanne juga merasa sangat berat dan sedih ketika Jeanne tau kelalaian Jeanne hari ini membuat Biru kesal dan kecewa. Jeanne sendiri tidak ingin Biru merasa usaha Jeanne kurang serius, atau merasa bahwa Jeanne tidak menghargai kesempatan dan tanggung jawab yang Jeanne miliki."],
+          ["Jeanne minta maaf ya. Maaf sudah membuat Biru kecewa, khawatir, dan kesal. Jeanne sangat sayang Biru. Jeanne harap dan tidak ingin kesalahan kecil seperti ini merusak kepercayaan yang sudah Biru berikan pada Jeanne. Jeanne berjanji akan belajar dari kejadian ini dan menjadi pribadi yang lebih bertanggung jawab. Terima kasih sudah selalu peduli, meskipun Jeanne tau Biru sedang kesal sekarang. Jeanne berharap Biru bisa memberi Jeanne kesempatan untuk memperbaiki diri dan membuktikan bahwa Jeanne sungguh-sungguh menyesali kesalahanku."],
+          ["Dengan permintaan maaf yang tulus dan penuh sayang, "],
+          ["Jeanne."]
+
+
         ]
       }
     ]
