@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -303,6 +304,165 @@
   <div class="calendar-app-indicator"></div>
 </section>
  
+ 
+<!-- Apple Books App -->
+<section id="booksApp" class="books-app">
+  <header class="books-header">
+    <div class="books-topbar">
+      <button id="booksBack" class="books-back">‹ Home</button>
+      <button id="booksEdit" class="books-edit">Edit</button>
+    </div>
+
+    <h1 id="booksPageTitle">Reading Now</h1>
+
+    <div class="books-search">
+      <span>⌕</span>
+      <input id="booksSearchInput" type="search"
+        placeholder="Search your library">
+    </div>
+  </header>
+
+  <div class="books-content">
+    <section class="books-reading-section">
+      <h2>Continue Reading</h2>
+
+      <div class="books-reading-card">
+        <div class="book-cover cover-midnight">
+          <span class="cover-small">A NOVEL</span>
+          <strong>THE<br>STARRY<br>NIGHT</strong>
+          <span class="cover-author">B. BIRU</span>
+        </div>
+
+        <div class="books-reading-info">
+          <h3>The Starry Night</h3>
+          <p>Copyright 2026 by Biru</p>
+          <div class="books-progress">
+            <span></span>
+          </div>
+          <small>42% completed</small>
+          <button class="books-read-button"
+            data-book="The Starry Night">Read</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="books-library-section">
+      <div class="books-section-heading">
+        <h2>Books</h2>
+        <button data-books-category="Books">See All ›</button>
+      </div>
+
+      <div class="books-shelf" id="booksShelf">
+        <button class="library-book" data-book="The Starry Night">
+          <div class="book-cover cover-midnight">
+            <span class="cover-small">A NOVEL</span>
+            <strong>THE<br>STARRY<br>NIGHT</strong>
+            <span class="cover-author">B. BIRU</span>
+          </div>
+          <span class="library-book-title">Biru</span>
+        </button>
+
+        <button class="library-book" data-book="My Beloved">
+          <div class="book-cover cover-rose">
+            <span class="cover-small">HAPPY BIRTHDAY</span>
+            <strong>MY<br>BELOVED</strong>
+            <span class="cover-decoration">✿</span>
+          </div>
+          <span class="library-book-title">Biru</span>
+        </button>
+
+        <button class="library-book" data-book="The Secret Garden">
+          <div class="book-cover cover-green">
+            <span class="cover-small">A CLASSIC</span>
+            <strong>THE<br>SECRET<br>GARDEN</strong>
+            <span class="cover-decoration">❀</span>
+          </div>
+          <span class="library-book-title">Biru</span>
+        </button>
+
+        <button class="library-book" data-book="Ocean of Dreams">
+          <div class="book-cover cover-ocean">
+            <span class="cover-small">POETRY</span>
+            <strong>OCEAN<br>OF DREAMS</strong>
+            <span class="cover-decoration">〰</span>
+          </div>
+          <span class="library-book-title">Biru</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="books-library-section">
+      <div class="books-section-heading">
+        <h2>Want to Read</h2>
+        <button data-books-category="Want to Read">See All ›</button>
+      </div>
+      <p class="books-muted">Books you save for later will appear here.</p>
+    </section>
+  </div>
+
+  <nav class="books-tabbar">
+    <button class="books-tab active" data-books-tab="Reading Now">
+      <span>▣</span>
+      <small>Reading Now</small>
+    </button>
+    <button class="books-tab" data-books-tab="Library">
+      <span>▤</span>
+      <small>Library</small>
+    </button>
+    <button class="books-tab" data-books-tab="Book Store">
+      <span>♧</span>
+      <small>Book Store</small>
+    </button>
+    <button class="books-tab" data-books-tab="Search">
+      <span>⌕</span>
+      <small>Search</small>
+    </button>
+  </nav>
+
+  
+<div id="booksReader" class="books-reader">
+  <div class="reader-toolbar">
+    <button id="booksReaderClose" aria-label="Close reader">‹ Library</button>
+    <span id="readerPageCounter">Page 1 of 1</span>
+    <button id="readerContentsButton" aria-label="Book information">Aa</button>
+  </div>
+
+  <div class="reader-book-info">
+    <span id="readerBookType">NOVEL</span>
+    <h2 id="booksReaderTitle">The Starry Night</h2>
+  </div>
+
+  <div class="reader-stage">
+    <div class="reader-paper" id="readerPaper">
+      <div class="reader-page-content" id="readerPageContent">
+        <h3>Chapter One</h3>
+        <p>Every story begins with a quiet moment...</p>
+      </div>
+      <div class="reader-page-number" id="readerPageNumber">1</div>
+    </div>
+    <div class="reader-paper reader-flip-paper" id="readerFlipPaper">
+      <div class="reader-page-content" id="readerFlipContent"></div>
+      <div class="reader-page-number" id="readerFlipNumber">2</div>
+    </div>
+  </div>
+
+  <div class="reader-controls">
+    <button id="readerPrevPage" disabled>‹ Previous</button>
+    <div class="reader-progress">
+      <div id="readerProgressFill"></div>
+    </div>
+    <button id="readerNextPage">Next ›</button>
+  </div>
+
+  <p class="reader-hint">Tap Next to turn the page</p>
+  <div class="reader-home-indicator"></div>
+</div>
+
+
+  <div class="books-home-indicator"></div>
+</section>
+
+
 <!-- Photos App Page -->
 <section id="photosApp" class="photos-app">
 
@@ -322,44 +482,7 @@
     </div>
   </header>
 
-  <div id="photosGrid" class="photos-grid">
-    <button class="photo-tile" data-photo="0">
-      <div class="photo-placeholder photo-one"></div>
-    </button>
-    <button class="photo-tile" data-photo="1">
-      <div class="photo-placeholder photo-two"></div>
-    </button>
-    <button class="photo-tile" data-photo="2">
-      <div class="photo-placeholder photo-three"></div>
-    </button>
-    <button class="photo-tile" data-photo="3">
-      <div class="photo-placeholder photo-four"></div>
-    </button>
-    <button class="photo-tile" data-photo="4">
-      <div class="photo-placeholder photo-five"></div>
-    </button>
-    <button class="photo-tile" data-photo="5">
-      <div class="photo-placeholder photo-six"></div>
-    </button>
-    <button class="photo-tile" data-photo="6">
-      <div class="photo-placeholder photo-seven"></div>
-    </button>
-    <button class="photo-tile" data-photo="7">
-      <div class="photo-placeholder photo-eight"></div>
-    </button>
-    <button class="photo-tile" data-photo="8">
-      <div class="photo-placeholder photo-nine"></div>
-    </button>
-    <button class="photo-tile" data-photo="9">
-      <div class="photo-placeholder photo-ten"></div>
-    </button>
-    <button class="photo-tile" data-photo="10">
-      <div class="photo-placeholder photo-eleven"></div>
-    </button>
-    <button class="photo-tile" data-photo="11">
-      <div class="photo-placeholder photo-twelve"></div>
-    </button>
-  </div>
+  <div id="photosGrid" class="photos-grid" aria-label="50 photos in Library"></div>
 
   <div class="photos-bottom-nav">
     <button class="photos-nav-item active" data-photos-nav="Library">
@@ -388,6 +511,7 @@
 
   <div class="photos-home-indicator"></div>
 </section>
+ 
 
 
 
@@ -398,6 +522,8 @@
 
 
 </div>
+
+
       <!-- Edit isi halaman di sini -->
       <div class="wallpaper">
       </div>
