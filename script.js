@@ -1,3 +1,4 @@
+
 const clock = document.getElementById("clock");
 const statusTime = document.getElementById("statusTime");
 const dateLabel = document.getElementById("date");
@@ -426,7 +427,56 @@ const photoViewerContent = document.getElementById("photoViewerContent");
 const photoViewerCaption = document.getElementById("photoViewerCaption");
 const photoViewerClose = document.getElementById("photoViewerClose");
 const photosCount = document.getElementById("photosCount");
+
 const photosSelect = document.getElementById("photosSelect");
+
+// Isi Library dengan 50 foto berbeda.
+
+const libraryPhotoCount = 37;
+
+const libraryPhotoUrl = index =>
+  `photos/foto${index + 1}.jpg`;
+
+if (photosGrid) {
+  photosGrid.innerHTML = "";
+
+  for (let index = 0; index < libraryPhotoCount; index++) {
+    const tile = document.createElement("button");
+    tile.type = "button";
+    tile.className = "photo-tile";
+
+    const preview = document.createElement("div");
+    preview.className = "photo-placeholder";
+
+    const image = document.createElement("img");
+    image.src = libraryPhotoUrl(index);
+    image.alt = `Foto ${index + 1}`;
+    image.loading = "lazy";
+
+    preview.appendChild(image);
+    tile.appendChild(preview);
+    photosGrid.appendChild(tile);
+
+    tile.addEventListener("click", () => {
+      photoViewerContent.innerHTML = "";
+
+      const largeImage = document.createElement("img");
+      largeImage.src = libraryPhotoUrl(index);
+      largeImage.alt = `Foto ${index + 1}`;
+
+      photoViewerContent.appendChild(largeImage);
+
+      photoViewerCaption.textContent =
+        `Photo ${index + 1} of ${libraryPhotoCount}`;
+
+      photoViewer.classList.add("visible");
+    });
+  }
+
+  photosCount.textContent = "50 Photos";
+}
+
+
 
 photosIcon?.addEventListener("click", () => {
   photosApp.classList.add("visible");
@@ -435,16 +485,6 @@ photosIcon?.addEventListener("click", () => {
 photosBack?.addEventListener("click", () => {
   photoViewer.classList.remove("visible");
   photosApp.classList.remove("visible");
-});
-
-photosGrid?.querySelectorAll(".photo-tile").forEach((tile, index) => {
-  tile.addEventListener("click", () => {
-    const preview = tile.querySelector(".photo-placeholder");
-    photoViewerContent.innerHTML = "";
-    photoViewerContent.appendChild(preview.cloneNode(true));
-    photoViewerCaption.textContent = `Photo ${index + 1}`;
-    photoViewer.classList.add("visible");
-  });
 });
 
 photoViewerClose?.addEventListener("click", () => {
@@ -488,4 +528,393 @@ photosSelect?.addEventListener("click", () => {
   photosSelecting = !photosSelecting;
   photosSelect.textContent = photosSelecting ? "Cancel" : "Select";
   photosGrid?.classList.toggle("selecting", photosSelecting);
+});
+
+
+const booksIcon = document.querySelector('.app-item[data-app="Books"]');
+const booksApp = document.getElementById("booksApp");
+const booksBack = document.getElementById("booksBack");
+const booksReader = document.getElementById("booksReader");
+const booksReaderClose = document.getElementById("booksReaderClose");
+const booksReaderTitle = document.getElementById("booksReaderTitle");
+const booksReaderAuthor = document.getElementById("booksReaderAuthor");
+const booksSearchInput = document.getElementById("booksSearchInput");
+const booksPageTitle = document.getElementById("booksPageTitle");
+const booksShelf = document.getElementById("booksShelf");
+
+function openBooksApp() {
+  booksApp.classList.add("visible");
+  booksReader.classList.remove("visible");
+}
+
+function closeBooksApp() {
+  booksApp.classList.remove("visible");
+  booksReader.classList.remove("visible");
+}
+
+booksIcon?.addEventListener("click", openBooksApp);
+booksBack?.addEventListener("click", closeBooksApp);
+
+function openBook(title) {
+  booksReaderTitle.textContent = title;
+  booksReaderAuthor.textContent = title.toUpperCase();
+  booksReader.classList.add("visible");
+}
+
+document.querySelectorAll("#booksApp [data-book]").forEach(button => {
+  button.addEventListener("click", () => {
+    openBook(button.dataset.book);
+  });
+});
+
+booksReaderClose?.addEventListener("click", () => {
+  booksReader.classList.remove("visible");
+});
+
+// Search books in the library
+booksSearchInput?.addEventListener("input", () => {
+  const query = booksSearchInput.value.toLowerCase().trim();
+
+  document.querySelectorAll("#booksApp .library-book").forEach(book => {
+    const title = book.dataset.book.toLowerCase();
+    book.style.display = title.includes(query) ? "" : "none";
+  });
+});
+
+// Bottom navigation
+document.querySelectorAll("#booksApp .books-tab").forEach(button => {
+  button.addEventListener("click", () => {
+    document.querySelectorAll("#booksApp .books-tab").forEach(tab => {
+      tab.classList.remove("active");
+    });
+
+    button.classList.add("active");
+    const tabName = button.dataset.booksTab;
+    booksPageTitle.textContent = tabName;
+
+    if (tabName === "Reading Now") {
+      booksShelf.style.display = "grid";
+      booksShelf.querySelectorAll(".library-book").forEach(book => {
+        book.style.display = "";
+      });
+    } else if (tabName === "Library") {
+      booksShelf.style.display = "grid";
+      booksShelf.querySelectorAll(".library-book").forEach(book => {
+        book.style.display = "";
+      });
+    } else if (tabName === "Book Store") {
+      booksShelf.style.display = "grid";
+      booksShelf.querySelectorAll(".library-book").forEach(book => {
+        book.style.display = "";
+      });
+    } else if (tabName === "Search") {
+      booksSearchInput.focus();
+    }
+  });
+});
+
+// See All buttons
+document.querySelectorAll("#booksApp [data-books-category]").forEach(button => {
+  button.addEventListener("click", () => {
+    booksPageTitle.textContent = button.dataset.booksCategory;
+    booksShelf.style.display = "grid";
+  });
+});
+
+
+const readerPageContent = document.getElementById("readerPageContent");
+const readerFlipPaper = document.getElementById("readerFlipPaper");
+const readerFlipContent = document.getElementById("readerFlipContent");
+const readerPageNumber = document.getElementById("readerPageNumber");
+const readerFlipNumber = document.getElementById("readerFlipNumber");
+const readerPageCounter = document.getElementById("readerPageCounter");
+const readerBookType = document.getElementById("readerBookType");
+const readerProgressFill = document.getElementById("readerProgressFill");
+const readerPrevPage = document.getElementById("readerPrevPage");
+const readerNextPage = document.getElementById("readerNextPage");
+const readerContentsButton = document.getElementById("readerContentsButton");
+
+const bookLibrary = {
+  "The Starry Night": {
+    type: "FICTION · NOVEL",
+    pages: [
+      {
+        heading: "Chapter One",
+        paragraphs: [
+          ["The City After Dark", "heading"],
+          ["At half past eleven, the city looked as though someone had scattered tiny pieces of silver across a sheet of dark blue velvet."],
+          ["Mira stood beside her bedroom window, watching the lights in the apartments opposite blink out one by one. Somewhere below, a train crossed the bridge, carrying strangers toward places she had only ever imagined."],
+          ["She had always believed that every light belonged to a story. Tonight, for the first time, she wondered whether someone might be watching hers."]
+        ]
+      },
+      {
+        heading: "Chapter One",
+        paragraphs: [
+          ["The Unsent Letter", "heading"],
+          ["On her desk lay a letter she had rewritten seventeen times. The paper was soft at the folds, and a small blue stain marked the corner where her pen had slipped."],
+          ["“You cannot keep waiting for the perfect words,” her brother said from the doorway."],
+          ["“What if the wrong words change everything?” Mira asked."],
+          ["He smiled gently. “Then perhaps everything was waiting to change.”"]
+        ]
+      },
+      {
+        heading: "Chapter Two",
+        paragraphs: [
+          ["A Different Morning", "heading"],
+          ["The next morning arrived in pale gold. Mira folded the letter, placed it inside an envelope, and wrote a name she had avoided for three years."],
+          ["Her hands trembled as she sealed it. She did not know what answer would come, or whether an answer would come at all."],
+          ["For once, she decided that uncertainty was not a reason to remain still."]
+        ]
+      }
+    ]
+  },
+
+  "My Beloved": {
+    type: "HAPPY BIRTHDAY",
+    pages: [
+      {
+        heading: "Is to be known, someone loves you, it's me i'm someone.",
+        paragraphs: [
+          ["This book belong to,", "heading"],
+          ["22 things i love about you.", "heading"],
+          ["kind-hearted, beautiful, shy, loving, understanding, forgiving, patient, mature, strong, intelligent, humble, respectful, warm, calming, humorous, inspiring, loyal, sincere, hardworking, family-oriented, special, charming."],
+          ["You are the calm to my cha-os. Tell me if you need me and call me if you feelin' alone 'cause i'm here, i'm always right here."]
+        ]
+      },
+      {
+        paragraphs: [
+          ["25/03/2026. 00-00; 09/06/2026.", "heading"],
+          ["Volume (1) Journal of self-Expression.", "heading"],
+          ["Tidak dipublikasikan, hanya untuk Ruth Stefanova.", "heading"],
+          ["Happy Celebrate Birthday and Happy Twentytwo Years Old Ruth Stefanova", "heading"],
+          ["Biru", "heading"],
+          ["Email: tentangbiiru@gmail.com", "heading"],
+          ["Izinkan saya menceritakan kisah tentang orang yang menyelamatkan hidup saya. Ruth Stefanova atau saya biasa memanggilnya Ute. Dia baik, dia cantik, dia memiliki mata yang paling indah, dia adalah tipe perempuan yang menunduk setiap kali menatap matanya terlalu lama. Dia adalah segalanya yang pernah saya minta. Dia menunjukkan kepada saya bahwa saya pantas untuk dicintai dan dia membuat saya jatuh cinta lagi. Selamat ulangtahun, hari ini adalah hari tepat dimana 19 tahun yang lalu seorang ibu melahirkan putri kesayangannya yang sudah ditunggu sejak 9 bulan lamanya. Ruth Stefanova adalah nama yang diberikan oleh malaikat kesayangan si kecil, dengan harapan dapat memberikan kebahagiaan untuk keluarganya. Seluruh harapan dan keinginan diberikan agar kamu (Ute) membanggakan untuk keluarga. Dimulai pada saat itulah kehidupan dimulai, hingga seka putri kesayangan seorang ibu, bapak dan keluarga sudah berada pada umur yang tidak lagi anak-anak melainkan sudah menjadi remaja yang memasuki dewasa. Terimakasih dan Maaf adalah kata yang tepat untuk diucapkan pada saat ini untuk segala hal baik yang sudah terjadi dan dilewati. Hari ini apapun yang ada di pikiranmu, siapapun yang bersamamu, menempati hatimu dan kemanapun langkah kakimu akan melangkah. Semoga selalu diberkahi oleh Tuhan dan kedua orangtua mu. Karena aku hanya ingin melihatmu bahagia dengan benar. Terima kasih sudah datang dan memberikan pengalaman yang tidak semua orang bisa alami. "]
+        ]
+      },
+      {
+        paragraphs: [
+          ["Setiap orang pernah merasakan hari ulangtahun. Dimana hari itu adalah hari kelahiran yang selalu ditunggu bahkan diingat oleh setiap individu. Mengulang hari ulang tahun mungkin sudah jadi hal biasa untukmu, tapi semoga setiap tahun yang terulang akan menjadi langkah baru untuk menjadi pribadi yang lebih baik, lebih kuat, dan lebih dewasa dalam menghadapi setiap hal baru yang terjadi. Sebenarnya, menjadi lebih baik tidak harus menunggu hari ulangtahun. Di setiap waktu, kamu boleh punya harapan dan keinginan yang baik untuk hidupmu. Aku selalu mendoakan yang diinginkan kamu supaya berjalan dengan baik dan sesuai harapan bahkan dijadikan hal yang paling baik. Pasti ada kalanya hal- hal yang ditemui kamu tidak sesuai dengan apa yang diharapkan, bahkan hal buruk dalam kehidupan, tapi aku yakin kamu bisa menghadapinya."],
+          ["“Semangat, pasti bisa.”", "heading"],
+          ["Akan selalu jadi kata dari aku untuk kamu, dalam menghadapi hal-hal yang mungkin belum pernah terjadi sebelumnya di hidupmu. Selalu nikmati segala proses pendewasaan yang mengalir di kehidupan, sertai rasa syukur dan terimakasih agar selalu tumbuh. Patah, hancur, kecewa adalah suatu hal yang biasa dirasakan ketika ingin menjadi pribadi yang lebih kuat dalam mengupgrade diri. Dua puluh dua tahun bukanlah angka yang sedikit, akan tetapi semoga Tuhan selalu memberikan rahmat karunianya untuk kamu, dilimpahkan kekuatan untuk menghadapi kehidupan dalam kondisi apapun, dibawah tekanan ataupun paksaan."],
+          ["Untuk tahun 2026 semoga apa yang sudah terjadi, semoga selalu diganti dengan hal yang baik ditahun ini dan di tahun selanjutnya. Walaupun kita baru bertemu dalam kurun waktu yang sebentar, semoga itu bisa menjadikan diri mu menjadi pribadi yang lebih baik lagi. Jangan pernah mengambil hal buruk yang aku ajarin ke kamu yaa, akan tetapi ambil dari sisi positifnya. "],
+          ["Maret 2026, aku gak pernah kepikiran untuk kenal kamu dengan hal yang terjadi dikehidupanmu, tapi aku selalu yakin apapun yang akan terjadi ataupun itu akan ada sebab akibatnya, itu semua sudah dari apa yang ditetapkan oleh Tuhan. Berawal dari hal yang tidak pernah terpikirkan hingga sekarang, aku bersyukur atas segala hal untuk apa yang pernah terjadi dikehidupan ini, telah dikenalkan oleh kamu yang notabennya berbeda dengan kehidupanku. Semoga kamu dapat menjadi kakak yang baik untuk adik-adik, orangtua, dan keluargamu. Aku bahagia sekali bisa kenal dengan mu, karena banyak hal yang bisa dipelajari, ditemukan, dan hal baik ataupun buruk bisa diambil dari kehidupanmu. Mungkin awal tahun 2026 merupakan tahun yang berat untuk mu tapi mengapa Tuhan memberikan suatu jalan hingga bertemu denganku."],
+          ["“We never know.”", "heading"],
+          ["Mungkin Tuhan ingin menunjukkan sesuatu yang baik dari semua yang sudah aku lalui. Aku juga belum benar-benar tahu apa maksudnya. Tapi aku percaya, setiap hal yang terjadi dalam hidup adalah takdir. Dan sebagai manusia, kita bisa memilih untuk menjadikannya pelajaran agar hidup kita jadi lebih baik dari sebelumnya."],
+          ["Semoga dengan apa yang telah terjadi Tuhan selalu memberikan kekuatan, ketabahan hati untuk diri kamu. Semangat untuk menjalani hari-harinya pasti ada kebahagiaan dalam setiap proses yang sedang kamu jalani. Jangan pernah berhenti jadi orang baik. Tetaplah berbuat baik kepada siapa pun tanpa melihat bagaimana mereka memperlakukanmu. Kadang, seseorang hadir membawa hal baru dan pelajaran yang belum pernah kita temui sebelumnya. Lakukan saja yang terbaik menurut dirimu, karena semua kebaikan pasti akan kembali pada waktunya. Untuk sekarang, aku selalu berdoa semoga semua yang kamu harapkan dan doakan dipermudah, dilancarkan, dan dikabulkan oleh Tuhan. Aku yakin suatu hari nanti kamu bisa menjadi seperti yang ibu dan bapak mu harapkan, walaupun banyak hal berat yang sudah kamu lewati. Aku percaya kamu, Ute, bisa menjadi kebanggaan untuk kedua orangtuamu."],
+          ["Semua doa dan harapanmu aku aamiin-kan", "heading"]
+        ]
+      },
+      {
+        paragraphs: [
+          [""]
+        ]
+      }
+    ]
+  },
+
+  "The Secret Garden": {
+    type: "CLASSIC · ADVENTURE",
+    pages: [
+      {
+        heading: "Chapter One",
+        paragraphs: [
+          ["The Locked Gate", "heading"],
+          ["The garden wall stood hidden behind a tangle of ivy. Its old stones were dark with rain, and branches leaned over the top as if guarding a secret."],
+          ["Clara had passed the wall many times without noticing the small iron gate. One morning, a robin landed on a nearby branch and called until she turned toward it."],
+          ["There, almost buried beneath the leaves, was a keyhole."]
+        ]
+      },
+      {
+        heading: "Chapter One",
+        paragraphs: [
+          ["Beneath the Ivy", "heading"],
+          ["She brushed away the ivy with both hands. The gate was smaller than she expected, and its hinges made a soft, tired sound when she pushed."],
+          ["Beyond it, the garden slept beneath weeds and tangled vines. A stone path disappeared beneath the grass, and an empty fountain stood in the middle."],
+          ["Clara felt no fear. She felt the strange excitement of finding something that had been waiting a very long time."]
+        ]
+      },
+      {
+        heading: "Chapter Two",
+        paragraphs: [
+          ["The First Green Shoot", "heading"],
+          ["Each morning, Clara returned with a small pair of gloves and a tin watering can. She pulled weeds, loosened the earth, and learned to recognize the plants that had survived."],
+          ["One day she discovered a bright green shoot beside the old fountain."],
+          ["It was no bigger than her little finger, but she knelt beside it as if it were a treasure."],
+          ["Spring, she realized, did not arrive all at once. Sometimes it began with one small leaf."]
+        ]
+      }
+    ]
+  },
+
+  "Ocean of Dreams": {
+    type: "POETRY · COLLECTION",
+    pages: [
+      {
+        heading: "I. The Ocean",
+        paragraphs: [
+          ["Where the Water Dreams", "heading"],
+          ["The sea keeps all the words", "poem"],
+          ["we were afraid to say,", "poem"],
+          ["and carries them in silver waves", "poem"],
+          ["to shores so far away.", "poem"],
+          ["At dawn it gives the sky a name,", "poem"],
+          ["at dusk it takes it back.", "poem"],
+          ["And every star becomes a flame", "poem"],
+          ["upon the water's black.", "poem"]
+        ]
+      },
+      {
+        heading: "II. The Moon",
+        paragraphs: [
+          ["A Small Light", "heading"],
+          ["The moon does not ask", "poem"],
+          ["the darkness to disappear.", "poem"],
+          ["It simply rises,", "poem"],
+          ["quiet and clear,", "poem"],
+          ["and reminds the waiting world", "poem"],
+          ["that light can live here.", "poem"]
+        ]
+      },
+      {
+        heading: "III. Returning",
+        paragraphs: [
+          ["After the Rain", "heading"],
+          ["Somewhere between the last raindrop", "poem"],
+          ["and the first bird's song,", "poem"],
+          ["I found the little piece of me", "poem"],
+          ["I had been missing all along.", "poem"],
+          ["No thunder announced it.", "poem"],
+          ["No great bells rang.", "poem"],
+          ["Only the earth breathed softly,", "poem"],
+          ["and the quiet garden sang.", "poem"]
+        ]
+      }
+    ]
+  }
+};
+
+let currentBookTitle = "";
+let currentBookPage = 0;
+let isTurningPage = false;
+let turnTimeout = null;
+
+function renderReaderPage() {
+  const book = bookLibrary[currentBookTitle];
+  if (!book) return;
+
+  const page = book.pages[currentBookPage];
+
+  readerPageContent.innerHTML = "";
+
+  const heading = document.createElement("h3");
+  heading.textContent = page.heading;
+  readerPageContent.appendChild(heading);
+
+  page.paragraphs.forEach(([text, style]) => {
+    const paragraph = document.createElement("p");
+    paragraph.textContent = text;
+
+    if (style === "heading") paragraph.classList.add("quote");
+    if (style === "poem") paragraph.classList.add("poem");
+
+    readerPageContent.appendChild(paragraph);
+  });
+
+  readerPageNumber.textContent = currentBookPage + 1;
+  readerPageCounter.textContent =
+    `Page ${currentBookPage + 1} of ${book.pages.length}`;
+
+  readerBookType.textContent = book.type;
+  readerProgressFill.style.width =
+    `${((currentBookPage + 1) / book.pages.length) * 100}%`;
+
+  readerPrevPage.disabled = currentBookPage === 0;
+  readerNextPage.disabled = currentBookPage === book.pages.length - 1;
+}
+
+function openBook(title) {
+  if (!bookLibrary[title]) return;
+
+  currentBookTitle = title;
+  currentBookPage = 0;
+  isTurningPage = false;
+
+  if (turnTimeout) clearTimeout(turnTimeout);
+
+  readerFlipPaper.classList.remove("turn-forward", "turn-backward");
+  readerFlipPaper.style.display = "none";
+
+  booksReaderTitle.textContent = title;
+  booksReader.classList.add("visible");
+  booksReader.scrollTop = 0;
+
+  renderReaderPage();
+}
+
+function turnBookPage(direction) {
+  const book = bookLibrary[currentBookTitle];
+
+  if (!book || isTurningPage) return;
+
+  const nextIndex = currentBookPage + direction;
+
+  if (nextIndex < 0 || nextIndex >= book.pages.length) return;
+
+  isTurningPage = true;
+
+  // Simpan isi halaman lama untuk lembar yang akan berputar.
+  readerFlipContent.innerHTML = readerPageContent.innerHTML;
+  readerFlipNumber.textContent = currentBookPage + 1;
+
+  readerFlipPaper.style.display = "block";
+  readerFlipPaper.classList.remove("turn-forward", "turn-backward");
+
+  // Paksa browser memulai ulang animasi.
+  void readerFlipPaper.offsetWidth;
+
+  currentBookPage = nextIndex;
+  renderReaderPage();
+
+  readerFlipPaper.classList.add(
+    direction > 0 ? "turn-forward" : "turn-backward"
+  );
+
+  turnTimeout = setTimeout(() => {
+    readerFlipPaper.classList.remove("turn-forward", "turn-backward");
+    readerFlipPaper.style.display = "none";
+    isTurningPage = false;
+  }, 580);
+}
+
+readerPrevPage?.addEventListener("click", () => turnBookPage(-1));
+readerNextPage?.addEventListener("click", () => turnBookPage(1));
+
+readerContentsButton?.addEventListener("click", () => {
+  const book = bookLibrary[currentBookTitle];
+  if (!book) return;
+
+  const chapters = book.pages
+    .map((page, index) => `${index + 1}. ${page.heading}`)
+    .join("\n");
+
+  alert(`${currentBookTitle}\n\n${chapters}`);
+});
+
+booksReaderClose?.addEventListener("click", () => {
+  booksReader.classList.remove("visible");
+  readerFlipPaper.classList.remove("turn-forward", "turn-backward");
+  readerFlipPaper.style.display = "none";
+
+  if (turnTimeout) clearTimeout(turnTimeout);
+
+  isTurningPage = false;
+});
+
+// Gunakan satu listener untuk semua cover buku.
+booksApp?.addEventListener("click", event => {
+  const bookButton = event.target.closest("[data-book]");
+  if (!bookButton || !booksApp.contains(bookButton)) return;
+
+  openBook(bookButton.dataset.book);
 });
