@@ -1,3 +1,4 @@
+
 * {
   box-sizing: border-box;
 }
@@ -2196,3 +2197,1912 @@ body {
   height: 100%;
   object-fit: contain;
 }
+
+/* =========================
+   APPLE MAPS STYLE
+========================= */
+
+.maps-app {
+  position: absolute;
+  inset: 0;
+  z-index: 100;
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+  background: #f5f5f7;
+  color: #171719;
+  border-radius: inherit;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.maps-app.visible {
+  display: flex !important;
+}
+
+.maps-header {
+  position: relative;
+  z-index: 10;
+  padding: 48px 17px 13px;
+  background: rgba(255,255,255,.96);
+  box-shadow: 0 2px 12px #0000000c;
+}
+
+.maps-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 17px;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.maps-back,
+.maps-profile {
+  border: 0;
+  background: transparent;
+  color: #1685ed;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.maps-profile {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #e8f2ff;
+  font-size: 13px;
+}
+
+.maps-search-box {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  height: 43px;
+  padding: 0 12px;
+  border-radius: 13px;
+  background: #f0f0f2;
+  color: #8e8e93;
+}
+
+.maps-search-box span {
+  font-size: 23px;
+}
+
+.maps-search-box input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  outline: none;
+  background: transparent;
+  color: #222;
+  font-size: 14px;
+}
+
+.maps-search-box button {
+  border: 0;
+  background: transparent;
+  color: #888;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.maps-city-switch {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.maps-city {
+  padding: 7px 15px;
+  border: 1px solid #e3e3e7;
+  border-radius: 20px;
+  background: white;
+  color: #555;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.maps-city.active {
+  border-color: #1685ed;
+  background: #1685ed;
+  color: white;
+}
+
+.apple-map {
+  position: absolute;
+  top: 165px;
+  right: 0;
+  bottom: 190px;
+  left: 0;
+  z-index: 1;
+  background: #e9eee7;
+  overflow: hidden;
+}
+
+
+.apple-map .leaflet-control-attribution {
+  font-size: 8px;
+}
+
+.maps-floating-controls {
+  position: absolute;
+  right: 13px;
+  bottom: 205px;
+  z-index: 500;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.maps-floating-controls button {
+  width: 39px;
+  height: 39px;
+  border: 0;
+  border-radius: 50%;
+  background: white;
+  color: #1685ed;
+  box-shadow: 0 2px 9px #0002;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.maps-place-card {
+  position: absolute;
+  z-index: 600;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 190px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  padding: 10px 17px 30px;
+  border-radius: 20px 20px 0 0;
+  background: rgba(255,255,255,.97);
+  box-shadow: 0 -3px 18px #00000012;
+}
+
+.maps-card-handle {
+  width: 36px;
+  height: 4px;
+  margin: 0 auto 13px;
+  border-radius: 5px;
+  background: #d2d2d7;
+}
+
+.maps-card-label {
+  margin: 0 0 5px;
+  color: #8e8e93;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.maps-place-card h3 {
+  margin: 0;
+  font-size: 19px;
+  font-weight: 700;
+}
+
+.maps-place-card > p:not(.maps-card-label) {
+  margin: 5px 0 12px;
+  color: #777;
+  font-size: 11px;
+}
+
+.maps-places {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 5px;
+}
+
+.maps-place-item {
+  flex: 0 0 auto;
+  padding: 8px 12px;
+  border: 1px solid #e8e8eb;
+  border-radius: 12px;
+  background: #fafafa;
+  color: #333;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.maps-place-item:active {
+  background: #eaf3ff;
+}
+
+.maps-home-indicator {
+  position: absolute;
+  bottom: 7px;
+  left: 50%;
+  z-index: 700;
+  width: 105px;
+  height: 4px;
+  border-radius: 5px;
+  background: #222;
+  transform: translateX(-50%);
+}
+
+@media (max-height: 700px) {
+  .maps-header {
+    padding-top: 35px;
+  }
+
+  .apple-map {
+    inset-top: 0;
+    top: 152px;
+    bottom: 175px;
+  }
+
+  .maps-place-card {
+    height: 175px;
+  }
+
+  .maps-floating-controls {
+    bottom: 188px;
+  }
+}
+
+/* =========================
+   APPLE MAIL APP
+========================= */
+
+.mail-app {
+  position: absolute;
+  inset: 0;
+  z-index: 100;
+  display: none;
+  overflow: hidden;
+  background: #f5f5f7;
+  color: #171719;
+  border-radius: inherit;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.mail-app.visible {
+  display: block;
+}
+
+.mail-page {
+  position: absolute;
+  inset: 0;
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+  background: #f5f5f7;
+}
+
+.mail-page.active {
+  display: flex;
+}
+
+.mail-header {
+  flex-shrink: 0;
+  padding: 48px 18px 12px;
+  background: #f5f5f7;
+}
+
+.mail-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #1685ed;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.mail-compose-btn {
+  border: 0;
+  background: transparent;
+  color: #1685ed;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.mail-header h1 {
+  margin: 12px 0 16px;
+  font-size: 32px;
+  font-weight: 750;
+  letter-spacing: -1px;
+}
+
+.mail-search {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  height: 38px;
+  padding: 0 11px;
+  border-radius: 11px;
+  background: #e8e8ed;
+  color: #888;
+}
+
+.mail-search span {
+  font-size: 23px;
+}
+
+.mail-search input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  outline: none;
+  background: transparent;
+  font-size: 14px;
+  color: #222;
+}
+
+.mail-search button {
+  border: 0;
+  background: transparent;
+  font-size: 20px;
+  color: #888;
+  cursor: pointer;
+}
+
+.mail-filter {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.mail-filter-btn {
+  padding: 6px 13px;
+  border: 1px solid #dedee3;
+  border-radius: 18px;
+  background: white;
+  color: #666;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.mail-filter-btn.active {
+  background: #1685ed;
+  border-color: #1685ed;
+  color: white;
+}
+
+.mail-message-container {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 0 14px 10px;
+  scrollbar-width: none;
+}
+
+.mail-message-container::-webkit-scrollbar {
+  display: none;
+}
+
+.mail-message {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  padding: 14px 4px;
+  border-bottom: 1px solid #e4e4e8;
+  cursor: pointer;
+}
+
+.mail-message:active {
+  background: #e9edf3;
+}
+
+.mail-avatar {
+  flex-shrink: 0;
+  width: 43px;
+  height: 43px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #a8c8f2, #598dd5);
+  color: white;
+  font-size: 18px;
+  font-weight: 650;
+}
+
+.mail-message-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.mail-message-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+}
+
+.mail-message-name {
+  overflow: hidden;
+  color: #25252a;
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.mail-message-date {
+  flex-shrink: 0;
+  color: #888;
+  font-size: 10px;
+}
+
+.mail-message-subject {
+  margin-top: 4px;
+  overflow: hidden;
+  color: #333;
+  font-size: 12px;
+  font-weight: 650;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.mail-message-preview {
+  margin-top: 4px;
+  display: -webkit-box;
+  overflow: hidden;
+  color: #888;
+  font-size: 11px;
+  line-height: 1.4;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.mail-message.unread .mail-message-name,
+.mail-message.unread .mail-message-subject {
+  font-weight: 800;
+}
+
+.mail-message.unread .mail-message-name::before {
+  content: "";
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin-right: 6px;
+  border-radius: 50%;
+  background: #1685ed;
+}
+
+.mail-message-star {
+  margin-left: 5px;
+  color: #f5ae35;
+}
+
+.mail-empty {
+  display: none;
+  padding: 55px 0;
+  color: #999;
+  text-align: center;
+  font-size: 14px;
+}
+
+.mail-empty.show {
+  display: block;
+}
+
+.mail-tabbar {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 68px;
+  padding-bottom: 14px;
+  background: rgba(255,255,255,.97);
+  border-top: 1px solid #e6e6e9;
+}
+
+.mail-tab {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  border: 0;
+  background: transparent;
+  color: #8e8e93;
+  cursor: pointer;
+}
+
+.mail-tab span {
+  font-size: 21px;
+}
+
+.mail-tab small {
+  font-size: 9px;
+}
+
+.mail-tab.active {
+  color: #1685ed;
+}
+
+/* DETAIL */
+
+.mail-detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 49px 17px 15px;
+  background: #f5f5f7;
+}
+
+.mail-detail-header button {
+  border: 0;
+  background: transparent;
+  color: #1685ed;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.mail-detail-header div {
+  display: flex;
+  gap: 18px;
+}
+
+.mail-detail-content {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 15px 19px;
+  background: white;
+}
+
+.mail-detail-category {
+  color: #999;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.mail-detail-content h2 {
+  margin: 8px 0 20px;
+  font-size: 25px;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+
+.mail-sender {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.mail-sender-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
+.mail-sender-info strong {
+  font-size: 13px;
+}
+
+.mail-sender-info span,
+.mail-sender-info small {
+  color: #888;
+  font-size: 10px;
+  overflow-wrap: anywhere;
+}
+
+#mailStarToggle {
+  border: 0;
+  background: transparent;
+  color: #e9ad32;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.mail-recipient {
+  padding: 13px 0;
+  color: #888;
+  font-size: 11px;
+}
+
+.mail-body {
+  padding: 12px 0 25px;
+  color: #333;
+  font-size: 14px;
+  line-height: 1.75;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.mail-reply-bar {
+  display: flex;
+  gap: 10px;
+  padding: 12px 16px 30px;
+  background: white;
+  border-top: 1px solid #eee;
+}
+
+.mail-reply-bar button {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #1685ed;
+  border-radius: 20px;
+  background: white;
+  color: #1685ed;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+/* COMPOSE */
+
+.mail-compose-page {
+  background: white;
+}
+
+.mail-compose-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 49px 16px 16px;
+  border-bottom: 1px solid #eee;
+}
+
+.mail-compose-header button {
+  border: 0;
+  background: transparent;
+  color: #1685ed;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.mail-compose-header strong {
+  font-size: 15px;
+}
+
+.mail-compose-header #mailSend {
+  font-weight: 700;
+}
+
+.mail-compose-fields {
+  padding: 5px 17px;
+}
+
+.mail-field {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 45px;
+  border-bottom: 1px solid #eee;
+}
+
+.mail-field label {
+  width: 66px;
+  color: #888;
+  font-size: 13px;
+}
+
+.mail-field input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  outline: none;
+  font-size: 13px;
+  color: #222;
+}
+
+.mail-compose-body {
+  flex: 1;
+  min-height: 100px;
+  resize: none;
+  padding: 17px;
+  border: 0;
+  outline: none;
+  background: white;
+  color: #222;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.mail-compose-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 17px 35px;
+  border-top: 1px solid #eee;
+  color: #1685ed;
+}
+
+.mail-compose-toolbar button {
+  border: 0;
+  background: transparent;
+  color: #1685ed;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+/* MORE FOLDERS */
+
+.mail-more-page > .mail-header > button {
+  border: 0;
+  background: transparent;
+  color: #1685ed;
+  font-size: 14px;
+}
+
+.mail-folder-list {
+  margin: 10px 15px;
+  overflow-y: auto;
+  border-radius: 13px;
+  background: white;
+}
+
+.mail-folder-list button {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  width: 100%;
+  padding: 15px;
+  border: 0;
+  border-bottom: 1px solid #eee;
+  background: transparent;
+  text-align: left;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+.mail-folder-list button span {
+  color: #222;
+  font-size: 14px;
+}
+
+/* HOME INDICATOR */
+
+.mail-home-indicator {
+  position: absolute;
+  bottom: 7px;
+  left: 50%;
+  z-index: 900;
+  width: 105px;
+  height: 4px;
+  border-radius: 5px;
+  background: #222;
+  transform: translateX(-50%);
+}
+
+.mail-back-home {
+  border: none;
+  background: transparent;
+  color: #1685ed;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+}
+
+
+/* =========================
+   APPLE NOTES
+========================= */
+
+.notes-app {
+  position: absolute;
+  inset: 0;
+  z-index: 110;
+  display: none;
+  overflow: hidden;
+  background: #f2f2f7;
+  color: #1c1c1e;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.notes-app.visible {
+  display: block;
+}
+
+.notes-page {
+  position: absolute;
+  inset: 0;
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+  background: #f2f2f7;
+}
+
+.notes-page.active {
+  display: flex;
+}
+
+.notes-header {
+  padding: 52px 22px 12px;
+  flex-shrink: 0;
+}
+
+.notes-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.notes-home,
+.notes-new,
+.notes-editor-header button {
+  border: none;
+  background: transparent;
+  color: #d4a900;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.notes-home {
+  font-weight: 500;
+}
+
+.notes-new {
+  font-size: 27px;
+}
+
+.notes-header h1 {
+  font-size: 35px;
+  font-weight: 750;
+  letter-spacing: -1.5px;
+  margin: 0;
+}
+
+#notesCount {
+  color: #8e8e93;
+  font-size: 12px;
+  margin: 5px 0 17px;
+}
+
+.notes-search {
+  height: 37px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 11px;
+  background: #e3e3e8;
+  border-radius: 11px;
+  color: #8e8e93;
+}
+
+.notes-search span {
+  font-size: 20px;
+}
+
+.notes-search input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 15px;
+  color: #1c1c1e;
+}
+
+.notes-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0 22px;
+}
+
+.notes-item {
+  position: relative;
+  padding: 14px 2px;
+  border-bottom: 1px solid #d5d5da;
+  cursor: pointer;
+}
+
+.notes-item h3 {
+  margin: 0 0 5px;
+  font-size: 16px;
+  font-weight: 650;
+  color: #1c1c1e;
+}
+
+.notes-item p {
+  margin: 0;
+  font-size: 13px;
+  color: #8e8e93;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.notes-item small {
+  display: block;
+  color: #8e8e93;
+  font-size: 11px;
+  margin-bottom: 5px;
+}
+
+.notes-footer {
+  height: 55px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 22px;
+  background: rgba(242, 242, 247, 0.96);
+  color: #8e8e93;
+  font-size: 11px;
+}
+
+.notes-footer button {
+  border: none;
+  background: transparent;
+  color: #d4a900;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* Editor */
+
+.notes-editor-header {
+  height: 100px;
+  flex-shrink: 0;
+  padding: 52px 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.notes-editor-header button {
+  font-size: 16px;
+}
+
+.notes-editor-header div {
+  display: flex;
+  gap: 18px;
+}
+
+.notes-editor-info {
+  text-align: center;
+  color: #8e8e93;
+  font-size: 11px;
+  padding: 12px 0 20px;
+}
+
+.notes-title {
+  flex-shrink: 0;
+  width: calc(100% - 44px);
+  margin: 0 22px 10px;
+  padding: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 27px;
+  font-weight: 750;
+  color: #1c1c1e;
+}
+
+.notes-content {
+  flex: 1;
+  width: calc(100% - 44px);
+  margin: 0 22px;
+  padding: 0;
+  resize: none;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #1c1c1e;
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.notes-editor-footer {
+  height: 48px;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 22px;
+  color: #8e8e93;
+  font-size: 12px;
+}
+
+.notes-empty {
+  text-align: center;
+  color: #8e8e93;
+  padding: 45px 10px;
+  font-size: 13px;
+}
+
+.notes-delete {
+  color: #ff3b30 !important;
+  font-size: 19px !important;
+  margin-right: 2px;
+}
+
+
+/* =========================
+   APPLE CLOCK
+========================= */
+
+.clock-app {
+  position: absolute;
+  inset: 0;
+  z-index: 110;
+  display: none;
+  background: #000;
+  color: #fff;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  overflow: hidden;
+}
+
+.clock-app.visible {
+  display: flex;
+  flex-direction: column;
+}
+
+.clock-header {
+  padding: 52px 22px 15px;
+  flex-shrink: 0;
+}
+
+.clock-header button {
+  border: none;
+  background: transparent;
+  color: #ff9f0a;
+  font-size: 16px;
+}
+
+.clock-header h1 {
+  font-size: 32px;
+  margin: 20px 0 0;
+  letter-spacing: -1px;
+}
+
+.clock-page {
+  display: none;
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 0 22px 20px;
+}
+
+.clock-page.active {
+  display: block;
+}
+
+/* World Clock */
+
+.world-clock-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 17px 0;
+  border-bottom: 1px solid #292929;
+}
+
+.world-clock-city {
+  color: #999;
+  font-size: 13px;
+}
+
+.world-clock-name {
+  font-size: 19px;
+  margin-top: 4px;
+}
+
+.world-clock-time {
+  font-size: 34px;
+  font-weight: 300;
+  font-variant-numeric: tabular-nums;
+}
+
+.world-clock-date {
+  color: #999;
+  text-align: right;
+  font-size: 12px;
+}
+
+/* Alarm */
+
+.clock-alarm-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 22px;
+  padding: 10px 0 18px;
+}
+
+.clock-alarm-top button {
+  border: none;
+  border-radius: 50%;
+  width: 34px;
+  height: 34px;
+  background: #ff9f0a;
+  color: #000;
+  font-size: 25px;
+}
+
+.alarm-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 0;
+  border-bottom: 1px solid #292929;
+}
+
+.alarm-time {
+  font-size: 39px;
+  font-weight: 300;
+}
+
+.alarm-label {
+  color: #999;
+  font-size: 12px;
+}
+
+.alarm-toggle {
+  width: 48px;
+  height: 29px;
+  accent-color: #30d158;
+}
+
+/* Stopwatch */
+
+.stopwatch-display,
+.timer-display {
+  text-align: center;
+  font-size: 65px;
+  font-weight: 200;
+  font-variant-numeric: tabular-nums;
+  margin-top: 85px;
+  letter-spacing: -2px;
+}
+
+.stopwatch-controls {
+  display: flex;
+  justify-content: space-between;
+  margin: 65px 10px 30px;
+}
+
+.stopwatch-controls button,
+#timerStart,
+#timerCancel {
+  border: none;
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  font-size: 14px;
+  background: #242424;
+  color: #fff;
+}
+
+#stopwatchStart {
+  background: #123d26;
+  color: #30d158;
+}
+
+#stopwatchReset {
+  color: #999;
+}
+
+.stopwatch-lap {
+  padding: 13px 0;
+  border-top: 1px solid #292929;
+  display: flex;
+  justify-content: space-between;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Timer */
+
+.timer-display {
+  margin-top: 45px;
+}
+
+.timer-inputs {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 35px 0;
+}
+
+.timer-inputs label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: center;
+  color: #999;
+  font-size: 12px;
+}
+
+.timer-inputs input {
+  width: 65px;
+  padding: 12px 3px;
+  border: 1px solid #444;
+  border-radius: 10px;
+  background: #1c1c1e;
+  color: white;
+  text-align: center;
+  font-size: 20px;
+}
+
+#timerStart,
+#timerCancel {
+  display: inline-block;
+  margin: 10px 8px;
+  width: 85px;
+  height: 85px;
+}
+
+#timerStart {
+  background: #123d26;
+  color: #30d158;
+}
+
+#timerCancel {
+  background: #292929;
+  color: #ff453a;
+}
+
+/* Bottom Tabbar */
+
+.clock-tabbar {
+  flex-shrink: 0;
+  height: 72px;
+  padding-bottom: 8px;
+  background: #171717;
+  border-top: 1px solid #292929;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.clock-tabbar button {
+  border: none;
+  background: transparent;
+  color: #999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  font-size: 21px;
+}
+
+.clock-tabbar button span {
+  font-size: 10px;
+}
+
+.clock-tabbar button.active {
+  color: #ff9f0a;
+}
+
+
+/* =========================
+   APPLE WEATHER
+========================= */
+
+.weather-app {
+  position: absolute;
+  inset: 0;
+  z-index: 110;
+  display: none;
+  overflow: hidden;
+  color: white;
+  background:
+    linear-gradient(180deg, #3478b9 0%, #5d9bd0 45%, #a9c8df 100%);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.weather-app.visible {
+  display: flex;
+  flex-direction: column;
+}
+
+.weather-header {
+  height: 85px;
+  flex-shrink: 0;
+  padding: 49px 20px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.weather-header button {
+  border: none;
+  background: transparent;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.weather-header #weatherLocationButton {
+  font-size: 23px;
+}
+
+.weather-scroll {
+  flex: 1;
+  overflow-y: auto;
+  padding: 5px 17px 35px;
+  scrollbar-width: none;
+}
+
+.weather-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.weather-current {
+  text-align: center;
+  padding: 12px 0 28px;
+  text-shadow: 0 2px 12px rgba(0,0,0,.12);
+}
+
+.weather-current h1 {
+  margin: 0;
+  font-size: 30px;
+  font-weight: 400;
+}
+
+.weather-current p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: rgba(255,255,255,.9);
+}
+
+.weather-temperature {
+  font-size: 90px;
+  line-height: 1.15;
+  font-weight: 200;
+  letter-spacing: -5px;
+}
+
+.weather-current #weatherHighLow {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.weather-card {
+  padding: 17px;
+  margin-bottom: 12px;
+  border-radius: 19px;
+  background: rgba(35, 75, 115, .28);
+  border: 1px solid rgba(255,255,255,.12);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.weather-card h3,
+.weather-detail-card span {
+  margin: 0 0 15px;
+  color: rgba(255,255,255,.7);
+  font-size: 11px;
+  font-weight: 650;
+  letter-spacing: .7px;
+}
+
+.weather-hourly {
+  display: flex;
+  gap: 21px;
+  overflow-x: auto;
+  padding: 4px 0 8px;
+  scrollbar-width: none;
+}
+
+.weather-hourly::-webkit-scrollbar {
+  display: none;
+}
+
+.weather-hour-item {
+  min-width: 39px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 13px;
+  font-size: 13px;
+}
+
+.weather-hour-item .hour-icon {
+  font-size: 23px;
+}
+
+.weather-hour-item strong {
+  font-size: 16px;
+  font-weight: 550;
+}
+
+.weather-hour-item small {
+  color: rgba(255,255,255,.7);
+  font-size: 11px;
+}
+
+.weather-day {
+  min-height: 48px;
+  display: grid;
+  grid-template-columns: 1fr 35px 35px 1fr;
+  gap: 8px;
+  align-items: center;
+  border-top: 1px solid rgba(255,255,255,.13);
+  font-size: 13px;
+}
+
+.weather-day-name {
+  font-weight: 550;
+}
+
+.weather-day-icon {
+  font-size: 19px;
+  text-align: center;
+}
+
+.weather-day-low {
+  color: rgba(255,255,255,.65);
+  text-align: right;
+}
+
+.weather-temp-bar {
+  height: 5px;
+  border-radius: 10px;
+  background: rgba(255,255,255,.22);
+  overflow: hidden;
+}
+
+.weather-temp-bar span {
+  display: block;
+  height: 100%;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #75d5e8, #ffd36a);
+}
+
+.weather-details {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 15px;
+}
+
+.weather-detail-card {
+  min-height: 100px;
+  padding: 15px;
+  border-radius: 17px;
+  background: rgba(35, 75, 115, .28);
+  border: 1px solid rgba(255,255,255,.12);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.weather-detail-card span {
+  margin: 0;
+}
+
+.weather-detail-card strong {
+  font-size: 25px;
+  font-weight: 450;
+}
+
+.weather-detail-card small {
+  color: rgba(255,255,255,.7);
+  font-size: 11px;
+}
+
+.weather-updated {
+  text-align: center;
+  color: rgba(255,255,255,.7);
+  font-size: 11px;
+  padding: 10px;
+}
+
+/* City Panel */
+
+.weather-city-panel {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  display: none;
+  flex-direction: column;
+  padding: 55px 20px 25px;
+  background: #192b40;
+  overflow-y: auto;
+}
+
+.weather-city-panel.visible {
+  display: flex;
+}
+
+.weather-city-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.weather-city-panel-header h2 {
+  font-size: 23px;
+}
+
+.weather-city-panel-header button,
+.weather-city-search button {
+  border: none;
+  background: transparent;
+  color: #8ecbff;
+  font-size: 15px;
+}
+
+.weather-city-search {
+  display: flex;
+  gap: 8px;
+  margin: 18px 0;
+}
+
+.weather-city-search input {
+  flex: 1;
+  min-width: 0;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background: #31445a;
+  color: white;
+  outline: none;
+}
+
+.weather-city-row {
+  padding: 17px 5px;
+  border-bottom: 1px solid rgba(255,255,255,.15);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  cursor: pointer;
+}
+
+.weather-city-row small {
+  display: block;
+  color: #aab9c8;
+  margin-top: 4px;
+}
+
+
+/* =========================
+   APPLE REMINDERS
+========================= */
+
+.reminders-app {
+  position: absolute;
+  inset: 0;
+  z-index: 110;
+  display: none;
+  overflow: hidden;
+  background: #f2f2f7;
+  color: #1c1c1e;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.reminders-app.visible {
+  display: block;
+}
+
+.reminders-page {
+  position: absolute;
+  inset: 0;
+  display: none;
+  flex-direction: column;
+  overflow-y: auto;
+  padding: 0 22px 25px;
+  background: #f2f2f7;
+}
+
+.reminders-page.active {
+  display: flex;
+}
+
+.reminders-header {
+  padding-top: 52px;
+}
+
+.reminders-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.reminders-topbar button,
+.reminders-list-header button,
+.reminders-editor-header button {
+  border: none;
+  background: transparent;
+  color: #1685ed;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.reminders-header h1 {
+  margin: 24px 0 3px;
+  font-size: 35px;
+  font-weight: 750;
+  letter-spacing: -1.4px;
+}
+
+.reminders-header > p {
+  margin: 0 0 22px;
+  color: #8e8e93;
+  font-size: 13px;
+}
+
+/* Smart Lists */
+
+.reminders-smart-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.reminders-smart-card {
+  min-height: 112px;
+  padding: 13px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background: #fff;
+  border: none;
+  border-radius: 17px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.035);
+  cursor: pointer;
+}
+
+.smart-icon {
+  font-size: 23px;
+  font-weight: 700;
+}
+
+.today-icon {
+  color: #3478f6;
+}
+
+.scheduled-icon {
+  color: #ef9b28;
+}
+
+.all-icon {
+  color: #8e8e93;
+}
+
+.completed-icon {
+  color: #34a853;
+}
+
+.reminders-smart-card strong {
+  margin-top: 5px;
+  font-size: 23px;
+}
+
+.reminders-smart-card small {
+  color: #8e8e93;
+  font-size: 12px;
+}
+
+/* Lists */
+
+.reminders-section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.reminders-section-heading h2 {
+  font-size: 21px;
+  margin: 0;
+}
+
+.reminders-section-heading button {
+  border: none;
+  background: transparent;
+  color: #1685ed;
+  font-size: 27px;
+}
+
+.reminders-list-card {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 16px;
+  background: white;
+  border-radius: 14px;
+  margin-bottom: 9px;
+  cursor: pointer;
+}
+
+.reminders-list-color {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #e8efff;
+  color: #3478f6;
+  font-size: 18px;
+}
+
+.reminders-list-info {
+  flex: 1;
+}
+
+.reminders-list-info strong {
+  display: block;
+  font-size: 15px;
+}
+
+.reminders-list-info small {
+  color: #8e8e93;
+  font-size: 11px;
+}
+
+.reminders-list-number {
+  color: #8e8e93;
+  font-size: 18px;
+}
+
+.reminders-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  padding: 25px 0 5px;
+  color: #8e8e93;
+  font-size: 11px;
+}
+
+.reminders-footer button {
+  border: none;
+  background: transparent;
+  color: #1685ed;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+/* List Detail */
+
+.reminders-list-header {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 52px;
+  margin-bottom: 30px;
+}
+
+.reminders-list-header button {
+  font-size: 15px;
+}
+
+#remindersListTitle {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 750;
+}
+
+#remindersListSubtitle {
+  margin: 5px 0 20px;
+  color: #8e8e93;
+  font-size: 13px;
+}
+
+.reminder-row {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 15px 0;
+  border-bottom: 1px solid #d8d8dd;
+}
+
+.reminder-check {
+  width: 21px;
+  height: 21px;
+  accent-color: #3478f6;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.reminder-row-content {
+  flex: 1;
+  min-width: 0;
+  cursor: pointer;
+}
+
+.reminder-row-content strong {
+  display: block;
+  font-size: 15px;
+  font-weight: 550;
+}
+
+.reminder-row-content p {
+  margin: 5px 0 0;
+  color: #8e8e93;
+  font-size: 12px;
+}
+
+.reminder-row-content small {
+  display: block;
+  margin-top: 5px;
+  color: #e49a26;
+  font-size: 11px;
+}
+
+.reminder-completed strong {
+  color: #8e8e93;
+  text-decoration: line-through;
+}
+
+.reminders-add-item {
+  border: none;
+  background: transparent;
+  color: #1685ed;
+  text-align: left;
+  font-size: 15px;
+  padding: 17px 0;
+}
+
+/* Editor */
+
+.reminders-editor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 52px;
+  padding-bottom: 25px;
+}
+
+.reminders-editor-header strong {
+  font-size: 15px;
+}
+
+.reminders-editor-form {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+
+.reminder-title-input,
+.reminder-notes-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 15px;
+  border: none;
+  border-radius: 12px;
+  background: white;
+  outline: none;
+  font-family: inherit;
+  font-size: 15px;
+}
+
+.reminder-title-input {
+  font-weight: 600;
+}
+
+.reminder-notes-input {
+  min-height: 95px;
+  resize: vertical;
+}
+
+.reminder-option {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 13px;
+  border-radius: 12px;
+  background: white;
+  font-size: 14px;
+}
+
+.reminder-option input,
+.reminder-option select {
+  max-width: 55%;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #1685ed;
+  font-family: inherit;
+  font-size: 13px;
+  text-align: right;
+}
+
+.reminder-delete {
+  margin-top: 20px;
+  padding: 15px;
+  border: none;
+  border-radius: 12px;
+  background: white;
+  color: #ff3b30;
+  font-size: 15px;
+}
+
