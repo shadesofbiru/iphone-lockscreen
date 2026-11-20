@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -5,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>iPhone Lock Screen</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
 <body>
   <main class="phone" id="phone">
@@ -132,19 +135,6 @@
     <span>Photos</span>
   </button>
 
-  <button class="app-item" data-app="Camera">
-    <span class="app-icon-box ios-icon camera-icon">
-      <svg viewBox="0 0 64 64">
-        <rect x="8" y="19" width="48" height="32" rx="8" fill="url(#camBody)"/>
-        <path d="M20 19 24 13H39L44 19" fill="#34343a"/>
-        <circle cx="32" cy="35" r="12" fill="#17171b" stroke="#777982" stroke-width="3"/>
-        <circle cx="32" cy="35" r="7" fill="#242d39" stroke="#111" stroke-width="2"/>
-        <circle cx="28" cy="31" r="3" fill="#a9c7e9" opacity=".8"/>
-        <defs><linearGradient id="camBody" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#656873"/><stop offset="1" stop-color="#25262c"/></linearGradient></defs>
-      </svg>
-    </span>
-    <span>Camera</span>
-  </button>
 
   <button class="app-item" data-app="Mail">
     <span class="app-icon-box ios-icon mail-icon">
@@ -229,27 +219,6 @@
       <svg viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#17171a"/><path d="M15 20H49V44H15Z" fill="#f8f8f8"/><path d="M26 20 20 12M38 20 44 12" stroke="#bfc3cc" stroke-width="3" stroke-linecap="round"/><text x="32" y="36" fill="#202027" font-size="12" text-anchor="middle" font-weight="700">tv</text></svg>
     </span>
     <span>TV</span>
-  </button>
-
-  <button class="app-item" data-app="Health">
-    <span class="app-icon-box ios-icon health-icon">
-      <svg viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#fff"/><path d="M32 49 13 31C1 16 21 7 32 22 43 7 63 16 51 31Z" fill="url(#heartBg)"/><defs><linearGradient id="heartBg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ff789a"/><stop offset="1" stop-color="#ed235d"/></linearGradient></defs></svg>
-    </span>
-    <span>Health</span>
-  </button>
-
-  <button class="app-item" data-app="Home">
-    <span class="app-icon-box ios-icon home-icon">
-      <svg viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#fff"/><path d="M8 29 32 9 56 29 51 34 46 30V53H18V30L13 34Z" fill="#f8a928"/><path d="M24 53V34H40V53" fill="#ffe2a2"/><path d="M21 31 32 21 43 31V43H21Z" fill="#ffd36e"/></svg>
-    </span>
-    <span>Home</span>
-  </button>
-
-  <button class="app-item" data-app="Wallet">
-    <span class="app-icon-box ios-icon wallet-icon">
-      <svg viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="#24252a"/><rect x="10" y="15" width="42" height="35" rx="6" fill="#8dc8f6"/><rect x="10" y="21" width="42" height="29" rx="5" fill="#f5f5f5"/><rect x="10" y="28" width="42" height="7" fill="#e95c5c"/><rect x="10" y="35" width="42" height="7" fill="#f4c34c"/><rect x="10" y="42" width="42" height="8" rx="3" fill="#63b7a2"/></svg>
-    </span>
-    <span>Wallet</span>
   </button>
 
   <button class="app-item" data-app="Settings">
@@ -363,7 +332,7 @@
 
         <button class="library-book" data-book="My Beloved">
           <div class="book-cover cover-rose">
-            <span class="cover-small">HAPPY BIRTHDAY</span>
+            <span class="cover-small">RUTH STEFANOVA</span>
             <strong>MY<br>BELOVED</strong>
             <span class="cover-decoration">✿</span>
           </div>
@@ -418,7 +387,6 @@
     </button>
   </nav>
 
-  
 <div id="booksReader" class="books-reader">
   <div class="reader-toolbar">
     <button id="booksReaderClose" aria-label="Close reader">‹ Library</button>
@@ -510,7 +478,563 @@
 
   <div class="photos-home-indicator"></div>
 </section>
- 
+
+ <!-- Apple Maps App -->
+<section id="mapsApp" class="maps-app">
+  <header class="maps-header">
+    <div class="maps-topbar">
+      <button id="mapsBack" class="maps-back">‹ Home</button>
+      <span>Maps</span>
+      <button class="maps-profile">●</button>
+    </div>
+
+    <div class="maps-search-box">
+      <span>⌕</span>
+      <input id="mapsSearch" type="search"
+        placeholder="Search Maps">
+      <button id="mapsClear">×</button>
+    </div>
+
+    <div class="maps-city-switch">
+      <button class="maps-city active" data-city="bandung">
+        Bandung
+      </button>
+      <button class="maps-city" data-city="jakarta">
+        Jakarta
+      </button>
+    </div>
+  </header>
+
+  <div id="appleMap" class="apple-map"></div>
+
+  <div class="maps-floating-controls">
+    <button id="mapsLocate" title="Lokasi saya">◎</button>
+    <button id="mapsZoomIn">＋</button>
+    <button id="mapsZoomOut">−</button>
+  </div>
+
+  <div class="maps-place-card">
+    <div class="maps-card-handle"></div>
+    <p class="maps-card-label">EXPLORE NEARBY</p>
+    <h3 id="mapsCityTitle">Bandung, Jawa Barat</h3>
+    <p id="mapsCityDescription">
+      Jelajahi tempat menarik di Bandung.
+    </p>
+    <div id="mapsPlaces" class="maps-places"></div>
+  </div>
+
+  <div class="maps-home-indicator"></div>
+</section>
+
+<!-- APPLE MAIL APP -->
+<section id="mailApp" class="mail-app">
+
+  <!-- INBOX PAGE -->
+  <div id="mailInboxPage" class="mail-page">
+
+    <header class="mail-header">
+      <div class="mail-topbar">
+        <button id="mailInboxLabel" class="mail-back-home">‹ Home</button>
+        <button id="mailCompose" class="mail-compose-btn">✎</button>
+      </div>
+
+      <h1 id="mailFolderTitle">Inbox</h1>
+
+      <div class="mail-search">
+        <span>⌕</span>
+        <input id="mailSearch" type="search"
+          placeholder="Search">
+        <button id="mailSearchClear">×</button>
+      </div>
+
+      <div class="mail-filter">
+        <button class="mail-filter-btn active"
+          data-filter="all">All Mail</button>
+        <button class="mail-filter-btn"
+          data-filter="unread">Unread</button>
+      </div>
+    </header>
+
+    <div class="mail-message-container">
+      <div id="mailMessageList"></div>
+      <p id="mailEmpty" class="mail-empty">
+        No Messages
+      </p>
+    </div>
+
+    <nav class="mail-tabbar">
+      <button class="mail-tab active" data-folder="Inbox">
+        <span>▤</span>
+        <small>Inbox</small>
+      </button>
+      <button class="mail-tab" data-folder="VIP">
+        <span>★</span>
+        <small>VIP</small>
+      </button>
+      <button class="mail-tab" data-folder="Sent">
+        <span>↗</span>
+        <small>Sent</small>
+      </button>
+      <button class="mail-tab" data-folder="Drafts">
+        <span>▧</span>
+        <small>Drafts</small>
+    </button>
+      <button class="mail-tab" data-folder="More">
+        <span>•••</span>
+        <small>More</small>
+      </button>
+    </nav>
+  </div>
+
+  <!-- EMAIL DETAIL PAGE -->
+  <div id="mailDetailPage" class="mail-page mail-detail-page">
+
+    <header class="mail-detail-header">
+      <button id="mailDetailBack">‹ Inbox</button>
+      <div>
+        <button id="mailDetailTrash">♧</button>
+        <button id="mailDetailMore">•••</button>
+      </div>
+    </header>
+
+    <div class="mail-detail-content">
+      <p class="mail-detail-category">MESSAGE</p>
+      <h2 id="mailDetailSubject">Subject</h2>
+
+      <div class="mail-sender">
+        <div id="mailSenderAvatar" class="mail-avatar">A</div>
+        <div class="mail-sender-info">
+          <strong id="mailSenderName">Sender</strong>
+          <span id="mailSenderAddress">email@example.com</span>
+          <small id="mailSenderDate">Today</small>
+        </div>
+        <button id="mailStarToggle">☆</button>
+      </div>
+
+      <div class="mail-recipient">
+        To: <span id="mailDetailRecipient">Me</span>
+      </div>
+
+      <div id="mailDetailBody" class="mail-body"></div>
+    </div>
+
+    <div class="mail-reply-bar">
+      <button id="mailReply">↶ Reply</button>
+      <button id="mailForward">↗ Forward</button>
+    </div>
+  </div>
+
+  <!-- COMPOSE PAGE -->
+  <div id="mailComposePage" class="mail-page mail-compose-page">
+
+    <header class="mail-compose-header">
+      <button id="mailComposeCancel">Cancel</button>
+      <strong>New Message</strong>
+      <button id="mailSend">Send</button>
+    </header>
+
+    <div class="mail-compose-fields">
+      <div class="mail-field">
+        <label>To:</label>
+        <input id="mailTo" placeholder="Email address">
+      </div>
+
+      <div class="mail-field">
+        <label>Cc/Bcc:</label>
+        <input id="mailCc" placeholder="Optional">
+      </div>
+
+      <div class="mail-field">
+        <label>Subject:</label>
+        <input id="mailSubject" placeholder="Subject">
+      </div>
+    </div>
+
+    <textarea id="mailComposeBody"
+      class="mail-compose-body"
+      placeholder="Write your message..."></textarea>
+
+    <div class="mail-compose-toolbar">
+      <button id="mailSaveDraft">▧ Save Draft</button>
+      <span>✎</span>
+    </div>
+  </div>
+
+  <!-- MORE FOLDERS -->
+  <div id="mailMorePage" class="mail-page mail-more-page">
+
+    <header class="mail-header">
+      <button id="mailMoreBack">‹ Mail</button>
+      <h1>Mailboxes</h1>
+    </header>
+
+    <div class="mail-folder-list">
+      <button data-folder="Inbox">📥 <span>Inbox</span></button>
+      <button data-folder="VIP">⭐ <span>VIP</span></button>
+      <button data-folder="Sent">📤 <span>Sent</span></button>
+      <button data-folder="Drafts">📝 <span>Drafts</span></button>
+      <button data-folder="Junk">⚠️ <span>Junk</span></button>
+      <button data-folder="Trash">🗑 <span>Trash</span></button>
+    </div>
+  </div>
+
+  <div class="mail-home-indicator"></div>
+</section>
+
+<!-- Apple Notes App -->
+<section id="notesApp" class="notes-app">
+
+  <!-- Notes List Page -->
+  <div id="notesListPage" class="notes-page active">
+    <header class="notes-header">
+      <div class="notes-topbar">
+        <button id="notesHome" class="notes-home">‹ Home</button>
+        <button id="notesNew" class="notes-new">□</button>
+      </div>
+
+      <h1>Notes</h1>
+      <p id="notesCount">0 Notes</p>
+
+      <div class="notes-search">
+        <span>⌕</span>
+        <input id="notesSearch" type="text" placeholder="Search">
+      </div>
+    </header>
+
+    <div id="notesList" class="notes-list"></div>
+
+    <footer class="notes-footer">
+      <span id="notesFooterCount">0 Notes</span>
+      <button id="notesCreate">New Note</button>
+    </footer>
+  </div>
+
+  <!-- Note Editor Page -->
+  <div id="notesEditorPage" class="notes-page">
+    <header class="notes-editor-header">
+      <button id="notesBack">‹ Notes</button>
+      <div>
+         <button id="notesDelete" class="notes-delete" title="Delete Note">🗑</button>
+        <button id="notesShare">↑</button>
+        <button id="notesMore">•••</button>
+      </div>
+    </header>
+
+    <div class="notes-editor-info">
+      <span id="notesDate">Today</span>
+    </div>
+
+    <input
+      id="notesTitle"
+      class="notes-title"
+      type="text"
+      placeholder="Title"
+    >
+
+    <textarea
+      id="notesContent"
+      class="notes-content"
+      placeholder="Start writing..."
+    ></textarea>
+
+    <div class="notes-editor-footer">
+      <span id="notesSaveStatus">Saved</span>
+      <span>✎</span>
+    </div>
+  </div>
+
+</section>
+
+<!-- Apple Clock App -->
+<section id="clockApp" class="clock-app">
+
+  <header class="clock-header">
+    <button id="clockHome">‹ Home</button>
+    <h1 id="clockPageTitle">World Clock</h1>
+  </header>
+
+  <!-- World Clock -->
+  <div id="clockWorldPage" class="clock-page active">
+    <div id="worldClockList"></div>
+  </div>
+
+  <!-- Alarm -->
+  <div id="clockAlarmPage" class="clock-page">
+    <div class="clock-alarm-top">
+      <span>Alarms</span>
+      <button id="addAlarm">+</button>
+    </div>
+    <div id="alarmList"></div>
+  </div>
+
+  <!-- Stopwatch -->
+  <div id="clockStopwatchPage" class="clock-page">
+    <div class="stopwatch-display" id="stopwatchDisplay">00:00.00</div>
+    <div class="stopwatch-controls">
+      <button id="stopwatchReset">Reset</button>
+      <button id="stopwatchStart">Start</button>
+    </div>
+    <div id="stopwatchLaps"></div>
+  </div>
+
+  <!-- Timer -->
+  <div id="clockTimerPage" class="clock-page">
+    <div class="timer-display" id="timerDisplay">00:05:00</div>
+
+    <div class="timer-inputs">
+      <label>
+        <span>Hours</span>
+        <input id="timerHours" type="number" min="0" max="99" value="0">
+      </label>
+      <label>
+        <span>Minutes</span>
+        <input id="timerMinutes" type="number" min="0" max="59" value="5">
+      </label>
+      <label>
+        <span>Seconds</span>
+        <input id="timerSeconds" type="number" min="0" max="59" value="0">
+      </label>
+    </div>
+
+    <button id="timerStart">Start</button>
+    <button id="timerCancel">Cancel</button>
+  </div>
+
+  <!-- Bottom Navigation -->
+  <nav class="clock-tabbar">
+    <button data-clock-tab="World">◷<span>World Clock</span></button>
+    <button data-clock-tab="Alarm">◉<span>Alarm</span></button>
+    <button data-clock-tab="Stopwatch">⏱<span>Stopwatch</span></button>
+    <button data-clock-tab="Timer">◴<span>Timer</span></button>
+  </nav>
+
+</section>
+
+
+<!-- Apple Weather App -->
+<section id="weatherApp" class="weather-app">
+
+  <header class="weather-header">
+    <button id="weatherHome">‹ Home</button>
+    <button id="weatherLocationButton">☷</button>
+  </header>
+
+  <main class="weather-scroll">
+
+    <!-- Current Weather -->
+    <section class="weather-current">
+      <h1 id="weatherCity">Jakarta</h1>
+      <p id="weatherCondition">Loading weather...</p>
+      <div class="weather-temperature" id="weatherTemperature">--°</div>
+      <p id="weatherHighLow">H: --°  L: --°</p>
+      <p id="weatherFeelsLike">Feels like --°</p>
+    </section>
+
+    <!-- Hourly Forecast -->
+    <section class="weather-card">
+      <h3>HOURLY FORECAST</h3>
+      <div id="weatherHourly" class="weather-hourly">
+        <p>Loading forecast...</p>
+      </div>
+    </section>
+
+    <!-- 10 Day Forecast -->
+    <section class="weather-card">
+      <h3>10-DAY FORECAST</h3>
+      <div id="weatherDaily"></div>
+    </section>
+
+    <!-- Weather Details -->
+    <section class="weather-details">
+      <div class="weather-detail-card">
+        <span>UV INDEX</span>
+        <strong id="weatherUV">--</strong>
+        <small id="weatherUVLabel">Loading</small>
+      </div>
+
+      <div class="weather-detail-card">
+        <span>SUNRISE</span>
+        <strong id="weatherSunrise">--:--</strong>
+        <small>Sunrise</small>
+      </div>
+
+      <div class="weather-detail-card">
+        <span>SUNSET</span>
+        <strong id="weatherSunset">--:--</strong>
+        <small>Sunset</small>
+      </div>
+
+      <div class="weather-detail-card">
+        <span>WIND</span>
+        <strong id="weatherWind">-- km/h</strong>
+        <small>Wind speed</small>
+      </div>
+
+      <div class="weather-detail-card">
+        <span>HUMIDITY</span>
+        <strong id="weatherHumidity">--%</strong>
+        <small>Humidity</small>
+      </div>
+
+      <div class="weather-detail-card">
+        <span>FEELS LIKE</span>
+        <strong id="weatherFeelsDetail">--°</strong>
+        <small>Apparent temperature</small>
+      </div>
+    </section>
+
+    <p id="weatherUpdated" class="weather-updated">
+      Weather data
+    </p>
+
+  </main>
+
+  <!-- Location List -->
+  <div id="weatherCityPanel" class="weather-city-panel">
+    <div class="weather-city-panel-header">
+      <h2>Weather Locations</h2>
+      <button id="weatherCloseCities">Done</button>
+    </div>
+
+    <div class="weather-city-search">
+      <input id="weatherCitySearch" placeholder="Search for a city">
+      <button id="weatherSearchButton">Search</button>
+    </div>
+
+    <div id="weatherCityList"></div>
+  </div>
+
+</section>
+
+
+<!-- Apple Reminders App -->
+<section id="remindersApp" class="reminders-app">
+
+  <!-- Main Page -->
+  <div id="remindersMainPage" class="reminders-page active">
+
+    <header class="reminders-header">
+      <div class="reminders-topbar">
+        <button id="remindersHome">‹ Home</button>
+        <button id="remindersAddList">Edit</button>
+      </div>
+
+      <h1>Reminders</h1>
+      <p id="remindersDate"></p>
+    </header>
+
+    <!-- Smart Lists -->
+    <div class="reminders-smart-grid">
+      <button class="reminders-smart-card" data-list="Today">
+        <span class="smart-icon today-icon">▣</span>
+        <strong id="remindersTodayCount">0</strong>
+        <small>Today</small>
+      </button>
+
+      <button class="reminders-smart-card" data-list="Scheduled">
+        <span class="smart-icon scheduled-icon">▦</span>
+        <strong id="remindersScheduledCount">0</strong>
+        <small>Scheduled</small>
+      </button>
+
+      <button class="reminders-smart-card" data-list="All">
+        <span class="smart-icon all-icon">☰</span>
+        <strong id="remindersAllCount">0</strong>
+        <small>All</small>
+      </button>
+
+      <button class="reminders-smart-card" data-list="Completed">
+        <span class="smart-icon completed-icon">✓</span>
+        <strong id="remindersCompletedCount">0</strong>
+        <small>Completed</small>
+      </button>
+    </div>
+
+    <div class="reminders-section-heading">
+      <h2>My Lists</h2>
+      <button id="remindersNew">+</button>
+    </div>
+
+    <div id="remindersLists"></div>
+
+    <footer class="reminders-footer">
+      <span id="remindersFooterCount">0 Reminders</span>
+      <button id="remindersQuickAdd">New Reminder</button>
+    </footer>
+
+  </div>
+
+  <!-- Reminder List Detail -->
+  <div id="remindersListPage" class="reminders-page">
+
+    <header class="reminders-list-header">
+      <button id="remindersBack">‹ Lists</button>
+      <button id="remindersListOptions">•••</button>
+    </header>
+
+    <h1 id="remindersListTitle">Today</h1>
+    <p id="remindersListSubtitle">Your reminders</p>
+
+    <div id="remindersItems"></div>
+
+    <button id="remindersAddItem" class="reminders-add-item">
+      + New Reminder
+    </button>
+
+  </div>
+
+  <!-- Create / Edit Reminder -->
+  <div id="remindersEditorPage" class="reminders-page">
+
+    <header class="reminders-editor-header">
+      <button id="remindersCancel">Cancel</button>
+      <strong id="remindersEditorHeading">New Reminder</strong>
+      <button id="remindersSave">Done</button>
+    </header>
+
+    <div class="reminders-editor-form">
+
+      <input
+        id="reminderTitle"
+        type="text"
+        placeholder="Title"
+        class="reminder-title-input"
+      >
+
+      <textarea
+        id="reminderNotes"
+        placeholder="Notes"
+        class="reminder-notes-input"
+      ></textarea>
+
+      <div class="reminder-option">
+        <label for="reminderDate">Date</label>
+        <input id="reminderDate" type="date">
+      </div>
+
+      <div class="reminder-option">
+        <label for="reminderTime">Time</label>
+        <input id="reminderTime" type="time">
+      </div>
+
+      <div class="reminder-option">
+        <label for="reminderListSelect">List</label>
+        <select id="reminderListSelect">
+          <option value="Reminders">Reminders</option>
+          <option value="Personal">Personal</option>
+          <option value="Work">Work</option>
+          <option value="Shopping">Shopping</option>
+        </select>
+      </div>
+
+      <button id="reminderDelete" class="reminder-delete">
+        Delete Reminder
+      </button>
+    </div>
+  </div>
+</section>
+
+
 
 
 
