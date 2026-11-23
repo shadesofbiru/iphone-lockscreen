@@ -1,4 +1,3 @@
-
 const clock = document.getElementById("clock");
 const statusTime = document.getElementById("statusTime");
 const dateLabel = document.getElementById("date");
@@ -104,7 +103,7 @@ const unlockedScreen = document.getElementById("unlockedScreen");
 const lockAgainButton = document.getElementById("lockAgain");
 
 // Ubah kode passcode sesuai keinginanmu
-const correctPasscode = "1804";
+const correctPasscode = "0418";
 
 function pressNumber(number) {
   if (enteredCode.length >= 4) return;
@@ -166,7 +165,7 @@ const notifications = [
   },
   {
     title: "Biru ♡",
-    message: "Pass codenya 1804."
+    message: "Pass codenya 0418."
   }
 ];
 
@@ -435,7 +434,7 @@ const photosSelect = document.getElementById("photosSelect");
 const libraryPhotoCount = 37;
 
 const libraryPhotoUrl = index =>
-  `foto${index + 1}.jpg`;
+  `photos/foto${index + 1}.jpg`;
 
 if (photosGrid) {
   photosGrid.innerHTML = "";
@@ -778,41 +777,25 @@ const bookLibrary = {
       {
         heading: "I. The Ocean",
         paragraphs: [
-          ["Where the Water Dreams", "heading"],
-          ["The sea keeps all the words", "poem"],
-          ["we were afraid to say,", "poem"],
-          ["and carries them in silver waves", "poem"],
-          ["to shores so far away.", "poem"],
-          ["At dawn it gives the sky a name,", "poem"],
-          ["at dusk it takes it back.", "poem"],
-          ["And every star becomes a flame", "poem"],
-          ["upon the water's black.", "poem"]
+          ["Some people feel like the ocean. Deep, endless, and sometimes impossible to understand. Aku tidak pernah tahu bagaimana seseorang bisa datang ke dalam hidupku dan perlahan mengubah begitu banyak hal. Bagaimana percakapan sederhana bisa menjadi sesuatu yang kutunggu, bagaimana kehadiran seseorang bisa membuat hari-hari biasa terasa lebih istimewa. Seperti laut, perasaan ini tidak selalu tenang. Ada hari ketika semuanya terasa begitu indah, ada pula saat ombak datang membawa ketakutan, keraguan, dan hal-hal yang tidak selalu bisa dijelaskan. Namun, aku belajar bahwa mencintai seseorang bukan berarti harus selalu memahami setiap bagiannya. Terkadang, cukup dengan bersedia mengenal lebih dalam, bahkan ketika ada bagian yang belum sepenuhnya kita mengerti. Dan jika aku harus menggambarkan perasaanku saat itu, mungkin aku akan menyebutnya laut. Luas, dalam, dan penuh dengan hal-hal yang masih ingin kutemukan."]
         ]
       },
       {
         heading: "II. The Moon",
         paragraphs: [
-          ["A Small Light", "heading"],
-          ["The moon does not ask", "poem"],
-          ["the darkness to disappear.", "poem"],
-          ["It simply rises,", "poem"],
-          ["quiet and clear,", "poem"],
-          ["and reminds the waiting world", "poem"],
-          ["that light can live here.", "poem"]
+           ["The moon has always been beautiful, even from a distance. Ada sesuatu tentang bulan yang membuatku selalu ingin menatapnya sedikit lebih lama. Ia tidak selalu terlihat utuh, terkadang hanya separuh, terkadang bahkan tidak terlihat sama sekali. Namun, keberadaannya tidak pernah kehilangan keindahannya. Mungkin manusia juga seperti itu. Kita tidak selalu bisa memberikan seluruh hal yang kita punya. Ada hari ketika kita lelah, ada waktu ketika kita tidak punya banyak kata, dan ada saat ketika dunia terasa terlalu ramai untuk sekadar menjelaskan apa yang sedang kita rasakan. Namun, aku ingin percaya bahwa kasih sayang tidak harus selalu hadir dalam bentuk yang besar. Terkadang, ia sesederhana sebuah pesan singkat, suara yang familiar, perhatian kecil, atau seseorang yang tetap berusaha memahami meskipun kita sedang tidak baik-baik saja. Seperti bulan, seseorang tidak harus selalu berada tepat di samping kita untuk membuat malam terasa lebih hangat. Dan mungkin, salah satu hal terindah dari mencintai adalah menemukan seseorang yang tetap ingin kita pandangi, bahkan setelah kita mengenalnya lebih jauh."]
         ]
       },
       {
         heading: "III. Returning",
         paragraphs: [
-          ["After the Rain", "heading"],
-          ["Somewhere between the last raindrop", "poem"],
-          ["and the first bird's song,", "poem"],
-          ["I found the little piece of me", "poem"],
-          ["I had been missing all along.", "poem"],
-          ["No thunder announced it.", "poem"],
-          ["No great bells rang.", "poem"],
-          ["Only the earth breathed softly,", "poem"],
-          ["and the quiet garden sang.", "poem"]
+          ["Sometimes, returning is not about going back to where we started. It's about choosing where we want to stay. Aku pernah berpikir bahwa hubungan yang baik adalah hubungan yang tidak pernah kehilangan arah. Bahwa dua orang yang saling menyayangi seharusnya selalu tahu bagaimana caranya membuat segalanya baik-baik saja. Namun, semakin jauh perjalanan ini, semakin aku mengerti bahwa tidak semua hari akan berjalan seperti yang kita harapkan. Ada perbedaan pendapat, kesalahpahaman, keheningan, dan hal-hal kecil yang terkadang membuat kita lupa bahwa kita berada di sisi yang sama. Tetapi bukankah itu bagian dari perjalanan?. Bagiku, kembali bukan selalu tentang menemukan seseorang setelah kehilangan. Terkadang, kembali adalah tentang dua orang yang setelah melewati hari yang panjang, tetap ingin saling menggenggam. Tetap ingin berbicara, memperbaiki, dan mencoba memahami satu sama lain. Aku tidak ingin menjanjikan bahwa semuanya akan selalu mudah. Aku hanya berharap, ketika keadaan tidak lagi terasa sederhana, kita tidak lupa alasan mengapa kita memulai semuanya. Because love is not only about finding each other. It's about choosing each other, over and over again."]
+        ]
+      },
+      {
+        heading: "IV. The Unwritten",
+        paragraphs: [
+          ["Tapi kalau ada yang bertanya, meskipun hubungan kami masih berjalan, aku tidak pernah ingin menganggapnya sebagai sesuatu yang biasa saja. Mengenalnya, aku pernah merasa sangat hidup. Aku merasa dicintai, dihargai, dan berarti. Bahkan di hari-hari sederhana, kehadirannya selalu punya cara untuk membuat segalanya terasa lebih baik. Aku tidak tahu akan sejauh apa kami berjalan. Aku juga tidak tahu apa yang menunggu di depan. Tapi untuk sekarang, aku ingin menikmati setiap bagian dari perjalanan ini. Maybe I don't need to know how our story ends. Maybe I just need to be grateful that we're still writing it. Terima kasih karena masih memilih untuk tinggal. Terima kasih karena masih menjadi bagian dari hari-hariku, bahkan dalam hal-hal kecil yang mungkin tidak selalu kusadari. Dan jika suatu hari nanti aku memutar kembali semua kenangan ini, aku ingin mengingat bahwa di antara begitu banyak hal yang pernah terjadi, ada seseorang yang dengannya aku pernah merasa segalanya."]
         ]
       }
     ]
@@ -983,17 +966,17 @@ const cityLocations = {
       { name: "AEON Emporium Pluit" },
       { name: "Timezone Emporium Pluit" },
       { name: "Tanah Abang Station" },
-      { name: "Central Park" },
+      { name: "Central Park Mall" },
       { name: "SevenDot Billiard & Cafe" },
       { name: "Mie Gacoan Gunung Sahari" },
       { name: "Soto Jakarta Bang Udin" },
-      { name: "Pecel Ayam Gorol" },
+      { name: "Pecel Ayam Grogol" },
       { name: "Cinepolis Mangga Dua Square" },
       { name: "KFC Mangga Dua Square" },
       { name: "The Jaya Pub" },
       { name: "ITC Mangga Dua" },
       { name: "Pasar Senen" },
-      { name: "Warkop Jangkung" },
+      { name: "Wwarung Jangkung" },
       { name: "Sogogi Shabu & Grill Mangga Besar" },
       { name: "Kopi Kenangan Ruko Gedong Panjang" },
       { name: "Catholic Church Of Stella Maris Pluit" },
@@ -3569,5 +3552,182 @@ document.getElementById("remindersCancel")
 document.getElementById("remindersSave")
   .addEventListener("click", saveReminder);
 
+
+const tvApp = document.getElementById("tvApp");
+const tvMainPage = document.getElementById("tvMainPage");
+const tvDetailPage = document.getElementById("tvDetailPage");
+const tvPlayerPage = document.getElementById("tvPlayerPage");
+
+const tvVideo = document.getElementById("tvVideo");
+const tvVideoPlaceholder = document.getElementById("tvVideoPlaceholder");
+
+const tvPrograms = {
+  featured: {
+    title: "Discover Your Next Favorite",
+    meta: "Featured • Apple TV+",
+    description: "Discover a collection of stories worth watching.",
+    poster: "coming-soon.jpg",
+    video: "film0.mp4"
+  },
+  movie1: {
+    title: "Catholic Church Of Stella Maris Pluit",
+    meta: "Movie • 2026",
+    description: "A fun little vlog filled with laughter, silly moments, and sweet memories during our church date at Catholic Church of Stella Maris Pluit. Just two people making ordinary moments extra special! ♡",
+    poster: "poster-film1.jpg",
+    video: "film1.mp4"
+  },
+  movie2: {
+    title: "AEON Emporium Pluit",
+    meta: "Movie • 2026",
+    description: "A fun-filled day at AEON Emporium Pluit, capturing random laughs, silly adventures, and little moments together. Just another date full of unexpected fun and sweet memories! ♡",
+    poster: "poster-film2.jpg",
+    video: "film2.mov"
+  },
+  original1: {
+    title: "Midnight Stories",
+    meta: "Apple Original • Series",
+    description: "Every night has a story waiting to be discovered.",
+    poster: "coming-soon.jpg",
+    video: "film3.mp4"
+  },
+  series1: {
+    title: "The Hidden World",
+    meta: "Series • 2 Seasons",
+    description: "A mysterious world with secrets waiting to unfold.",
+    poster: "coming-soon.jpg",
+    video: "film4.mp4"
+  }
+};
+
+function tvShowMainPage() {
+  tvMainPage.classList.remove("tv-hidden");
+  tvDetailPage.classList.add("tv-hidden");
+  tvPlayerPage.classList.add("tv-hidden");
+}
+
+function tvOpenApp() {
+  tvApp.classList.add("visible");
+  tvShowMainPage();
+}
+
+function tvCloseApp() {
+  tvApp.classList.remove("visible");
+  tvVideo.pause();
+}
+
+
+function tvOpenDetail(id) {
+  const program = tvPrograms[id];
+  if (!program) return;
+
+  document.getElementById("tvDetailTitle").textContent = program.title;
+  document.getElementById("tvDetailMeta").textContent = program.meta;
+  document.getElementById("tvDetailDescription").textContent = program.description;
+
+  const banner = document.getElementById("tvDetailBanner");
+
+  banner.style.backgroundImage = `url("${program.poster}")`;
+  banner.style.backgroundSize = "cover";
+  banner.style.backgroundPosition = "center";
+  banner.style.backgroundRepeat = "no-repeat";
+
+  tvApp.dataset.currentProgram = id;
+
+  tvMainPage.classList.add("tv-hidden");
+  tvDetailPage.classList.remove("tv-hidden");
+}
+
+
+function tvPlayProgram(id) {
+  const program = tvPrograms[id];
+  if (!program) return;
+
+  tvApp.dataset.currentProgram = id;
+
+  tvDetailPage.classList.add("tv-hidden");
+  tvPlayerPage.classList.remove("tv-hidden");
+
+  tvVideo.pause();
+  tvVideo.removeAttribute("src");
+  tvVideo.load();
+
+  if (program.video) {
+    tvVideo.src = program.video;
+    tvVideoPlaceholder.style.display = "none";
+    tvVideo.play().catch(() => {});
+  } else {
+    tvVideoPlaceholder.style.display = "flex";
+  }
+}
+
+// GENERATE POSTERS
+
+function tvCreateCard(id) {
+  const program = tvPrograms[id];
+
+  const card = document.createElement("div");
+  card.className = "tv-card";
+
+  card.innerHTML = `
+    <div class="tv-poster"
+      style="background-image: url('${program.poster}');
+             background-size: cover;
+             background-position: center;
+             background-repeat: no-repeat;">
+      <div class="tv-poster-title">${program.title}</div>
+    </div>
+    <h3>${program.title}</h3>
+    <p>${program.meta}</p>
+  `;
+
+  card.addEventListener("click", () => tvOpenDetail(id));
+
+  return card;
+}
+
+function tvRenderRow(elementId, programs) {
+  const row = document.getElementById(elementId);
+  row.innerHTML = "";
+
+  programs.forEach(id => {
+    row.appendChild(tvCreateCard(id));
+  });
+}
+
+tvRenderRow("tvContinueRow", ["movie1", "original1"]);
+tvRenderRow("tvMoviesRow", ["movie1", "movie2"]);
+tvRenderRow("tvOriginalsRow", ["original1"]);
+tvRenderRow("tvSeriesRow", ["series1"]);
+
+// NAVIGATION
+
+document.getElementById("tvHome")
+  .addEventListener("click", tvCloseApp);
+
+document.getElementById("tvDetailBack")
+  .addEventListener("click", tvShowMainPage);
+
+document.getElementById("tvPlayerBack")
+  .addEventListener("click", () => {
+    tvVideo.pause();
+    tvPlayerPage.classList.add("tv-hidden");
+    tvDetailPage.classList.remove("tv-hidden");
+  });
+
+document.getElementById("tvPlayButton")
+  .addEventListener("click", () => {
+    tvPlayProgram(tvApp.dataset.currentProgram);
+  });
+
+document.querySelectorAll("[data-tv-program]").forEach(button => {
+  button.addEventListener("click", () => {
+    tvOpenDetail(button.dataset.tvProgram);
+  });
+});
+
+// HOME SCREEN
+
+document.querySelector('.app-item[data-app="TV"]')
+  ?.addEventListener("click", tvOpenApp);
 
 
