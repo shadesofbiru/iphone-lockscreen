@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -1032,6 +1031,104 @@
       </button>
     </div>
   </div>
+</section>
+
+
+<!-- Apple TV App -->
+<section id="tvApp" class="tv-app">
+
+  <!-- MAIN PAGE -->
+  <div id="tvMainPage" class="tv-page">
+
+    <header class="tv-header">
+    </header>
+
+    <nav class="tv-tabs">
+      <button id="tvHome" class="tv-home">‹ Home</button>
+      <button class="tv-tab active" data-tv-tab="all">Watch Now</button>
+    </nav>
+
+    <div class="tv-content">
+
+      <!-- HERO -->
+      <div class="tv-hero">
+        <div class="tv-hero-image"></div>
+        <div class="tv-hero-info">
+          <span class="tv-original-label"> ORIGINAL</span>
+          <h1>Discover Your<br>Next Favorite.</h1>
+          <p>Stories worth watching.</p>
+          <button class="tv-hero-button" data-tv-program="featured">
+            Watch Now
+          </button>
+        </div>
+      </div>
+
+      <!-- CONTINUE WATCHING -->
+      <section class="tv-section">
+        <h2>Continue Watching</h2>
+        <div class="tv-horizontal-row" id="tvContinueRow"></div>
+      </section>
+
+      <!-- MOVIES -->
+      <section class="tv-section">
+        <h2>Popular Movies</h2>
+        <div class="tv-horizontal-row" id="tvMoviesRow"></div>
+      </section>
+
+      <!-- ORIGINALS -->
+      <section class="tv-section">
+        <h2>Apple Originals</h2>
+        <div class="tv-horizontal-row" id="tvOriginalsRow"></div>
+      </section>
+
+      <!-- SERIES -->
+      <section class="tv-section">
+        <h2>Must-Watch Series</h2>
+        <div class="tv-horizontal-row" id="tvSeriesRow"></div>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- DETAIL PAGE -->
+  <div id="tvDetailPage" class="tv-page tv-hidden">
+    <div class="tv-detail-banner" id="tvDetailBanner">
+      <button id="tvDetailBack" class="tv-back">‹</button>
+    </div>
+
+    <div class="tv-detail-content">
+      <span class="tv-original-label"> ORIGINAL</span>
+      <h1 id="tvDetailTitle">Movie Title</h1>
+      <p id="tvDetailMeta"></p>
+      <p id="tvDetailDescription"></p>
+
+      <button id="tvPlayButton" class="tv-play-button">
+        ▶ Play
+      </button>
+
+      <button id="tvAddButton" class="tv-add-button">
+        + Add to Up Next
+      </button>
+    </div>
+  </div>
+
+  <!-- PLAYER PAGE -->
+  <div id="tvPlayerPage" class="tv-page tv-hidden">
+    <header class="tv-player-header">
+      <span><span></span></span>
+    </header>
+
+    <div class="tv-player-container">
+      <button id="tvPlayerBack" class="tv-back">‹ Back</button>
+      <video id="tvVideo" controls playsinline>
+      </video>
+      <div id="tvVideoPlaceholder">
+        <span>▶</span>
+        <p>Select a video to watch</p>
+      </div>
+    </div>
+  </div>
+
 </section>
 
 
